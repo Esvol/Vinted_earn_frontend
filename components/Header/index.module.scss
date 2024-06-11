@@ -1,0 +1,335 @@
+.header{
+    z-index: 100010;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(var(--greyscale-level-7), 1);
+
+    &_main{
+        height: 52px;
+
+        &_container{
+            max-width: 1280px;
+            margin: 0 auto;
+            height: 100%;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &_flexbox{
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+
+                &_logo{
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    margin-right: 48px;
+
+                    &_link{
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        .img_logo{
+                            object-fit: contain;
+                        }
+                    }
+
+                    
+                }
+
+                &_search{
+                    display: flex;
+                    flex-direction: row;
+                    margin-right: 48px;
+                    width: 100%;
+
+                    &_catalogue{
+                        background-color: rgba(var(--greyscale-level-6), 1);
+                        border-top-left-radius: 4px;
+                        border-bottom-left-radius: 4px;
+                        display: flex;
+                        min-height: 36px;
+                        padding: 0;
+                        border-right: 1px solid rgba(var(--greyscale-level-1), .08);
+
+                        button{
+                            font-size: 14px;
+                            font-weight: 375;
+                            height: 36px;
+                            line-height: 18px;
+                            padding: 0 3px 0 11px;
+                            color: rgba(var(--muted-default), 1);
+                            text-decoration: none;
+                            background-color: initial;
+                            border-color: #0000;
+
+                            div{
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                position: relative;
+                                white-space: nowrap;
+                                z-index: 1;
+                                font-size: 14px;
+                                font-weight: 375;
+
+                                span{
+                                    font-weight: 600;
+                                    opacity: 0.9;
+                                }
+                            }
+                        }
+                    }
+
+                    &_inputBar{
+                        background-color: rgba(var(--greyscale-level-6), 1);
+                        display: flex;
+                        align-items: center;
+                        flex: 1;
+                        padding: 0 11px;
+                        min-width: 20%;
+                        max-width: 100%;
+                        border-top-right-radius: 4px;
+                        border-bottom-right-radius: 4px;
+
+                        input{
+                            height: 100%;
+                            width: 100%;
+                            margin-top: 2px;
+                            margin-left: 4px;
+                            padding-left: 4px;
+                            background-color: initial;
+                            color: RGBA(var(--greyscale-level-1, 1));
+                            display: flex;
+                            flex: 1;
+                            font-size: 16px;
+                            font-weight: 375;
+                        }
+                    }
+                }
+
+                &_account{
+                    display: flex;
+                    align-items: center;
+
+                    &_icons{
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                    }
+
+                    &_info{
+                        margin-left: 18px;
+                        display: flex;
+                        align-items: center;
+    
+                        &_avatar{
+                            border-radius: 50%;
+                            background-color: rgba(var(--greyscale-level-5), 0.6);
+                        }
+
+                        button{
+                            cursor: pointer;
+                            margin: 0 12px;
+                            width: 65px;
+                            text-align: center;
+                            background-color: rgba(var(--primary-default), 1);
+                            border-radius: 4px;
+                            color: rgba(var(--greyscale-level-7), 1);
+                            font-size: 12px;
+                            height: 28px; 
+                            padding: 0 8px;
+                            transition: var(--transition);
+
+                            &:hover{
+                                background-color: rgba(var(--primary-default), 0.8);
+                            }
+                        }
+
+                        &_language{
+                            margin-left: 18px;
+                            font-size: 14px;
+                            color:rgb(var(--greyscale-level-2));
+                            opacity: 0.8;
+                            font-weight: 600;
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_navigation{
+        min-height: 40px;
+        border-bottom: 1px solid rgba(var(--greyscale-level-1), .08);
+        border-top: 1px solid rgba(var(--greyscale-level-1), .08);
+        font-size: 1.3rem;
+
+        &_container{
+            max-width: 1280px;
+            height: 100%;
+            display: flex;  
+            align-items: center;          
+            margin: 0 auto;
+            padding: 0 20px;
+
+            ul{
+                display: flex;
+                list-style: none;
+                
+                li{
+                    align-items: center;
+                    color: rgba(var(--amplified-default), 0.6);
+                    cursor: pointer;
+                    display: flex;
+                    font-size: 14px;
+                    font-weight: 375;
+                    height: 46px;
+                    line-height: 18px;
+                    margin: 0;
+                    overflow: hidden;
+                    padding: 0 16px;
+                    position: relative;
+                    transition: var(--transition);
+
+                    &:hover{
+                        color: rgba(var(--amplified-default), 0.9);
+                    }
+                }
+            }
+
+            .phoneSearchBar{
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                width: 100%;
+                height: 44px;
+    
+                &_catalogue{
+                    background-color: rgba(var(--greyscale-level-6), 1);
+                    border-top-left-radius: 4px;
+                    border-bottom-left-radius: 4px;
+                    display: flex;
+                    height: 36px;
+                    padding: 0;
+                    border-right: 1px solid rgba(var(--greyscale-level-1), .08);
+    
+                    button{
+                        font-size: 14px;
+                        font-weight: 375;
+                        height: 36px;
+                        line-height: 18px;
+                        padding: 0 3px 0 11px;
+                        color: rgba(var(--muted-default), 1);
+                        text-decoration: none;
+                        background-color: initial;
+                        border-color: #0000;
+    
+                        div{
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            position: relative;
+                            white-space: nowrap;
+                            z-index: 1;
+                            font-size: 14px;
+                            font-weight: 375;
+    
+                            span{
+                                font-weight: 600;
+                                opacity: 0.9;
+                            }
+                        }
+                    }
+                }
+    
+                &_inputBar{
+                    background-color: rgba(var(--greyscale-level-6), 1);
+                    display: flex;
+                    align-items: center;
+                    height: 36px;
+                    flex: 1;
+                    padding: 0 11px;
+                    min-width: 20%;
+                    max-width: 100%;
+                    border-top-right-radius: 4px;
+                    border-bottom-right-radius: 4px;
+
+                    input{
+                        height: 100%;
+                        width: 100%;
+                        margin-top: 2px;
+                        margin-left: 4px;
+                        padding-left: 4px;
+                        background-color: initial;
+                        border-radius: 4px;
+                        color: RGBA(var(--greyscale-level-1, 1));
+                        display: flex;
+                        flex: 1;
+                        font-size: 16px;
+                        font-weight: 375;
+                    }
+                }
+            }
+        }
+
+        
+    }
+}
+
+.hamburger{
+    display: none;
+}
+
+.display_none{
+    display: none !important;
+}
+
+@media screen and (max-width: 960px) {
+    .header{
+        &_main{
+            &_container{
+                &_flexbox{
+                    justify-content: space-between;
+                    &_search{
+                        display: none;
+                    }
+
+                    &_account{
+                        &_info{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        &_navigation{
+            border-bottom: 0px;
+            &_container{
+                ul{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .display_none{
+        display: flex !important;
+    }
+
+    .hamburger{
+        display: block !important;
+    }
+}

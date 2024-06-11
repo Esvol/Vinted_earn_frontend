@@ -1,0 +1,148 @@
+.mannequin{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    // border: 1px solid red;
+
+    &_icon{
+        position: relative;
+
+        &_img{
+            width: clamp(440px, 40vw, 500px);
+            min-height: 500px;
+        }
+
+        &::before{
+            position: absolute;
+            content: '';
+            top: 170px;
+            right: -50px;
+            width: 220px;
+            height: 1px;
+            background-color: rgb(80, 36, 36);
+        }
+
+        &::after{
+            position: absolute;
+            content: '';
+            top: -20px;
+            left: -40px;
+            width: 250px;
+            height: 1px;
+            background-color: black;
+        }
+    }
+
+    &_earn{
+        margin-top: 20px;
+        width: 100%;
+        padding: 0px 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        // justify-content: space-between;
+        gap: 4px;
+
+        &_info{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            height: 100%;
+            padding: 0px 12px;
+            border-radius: 4px;
+            color: rgb(var(--greyscale-level-7), 0.9);
+            border: 1px solid rgb(var(--greyscale-level-4), 0.7);
+            background-color: rgb(var(--success-dark), 0.8);
+
+            &_timer{
+                animation: jump 3s linear infinite;
+            }
+        }
+
+        &_claim{
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            gap: 8px;
+            padding: 10px 30px;
+            border-radius: 6px;
+            color: rgb(var(--greyscale-level-7), 1);
+            font-weight: 600;
+            background-color: rgba(94, 94, 94, 0.549);
+            transition: var(--transition);
+
+            div{
+                min-width: 50px;
+            }
+
+            &_wait{
+                animation: spin 4s linear infinite;
+            }
+
+            &:hover{                
+                background-color: rgb(17, 125, 30);
+            }
+
+            &::after{
+                content: '';
+                position: absolute;
+            }
+        }
+    }
+
+    &::before{
+        position: absolute;
+        content: '';
+        bottom: 50px;
+        right: -50px;
+        width: 220px;
+        height: 1px;
+        background-color: rgb(80, 36, 36);
+    }
+
+    &::after{
+        position: absolute;
+        content: '';
+        bottom: 230px;
+        left: -40px;
+        width: 250px;
+        height: 1px;
+        background-color: black;
+    }
+}
+
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+      }
+      30% {
+        transform: translateY(-2.5px); 
+      }
+      50% {
+        transform: translateY(0);
+      }
+      70% {
+        transform: translateY(-2.5px); 
+      }
+      100% {
+        transform: translateY(0);
+      }
+}
