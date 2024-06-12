@@ -2,6 +2,8 @@ import React from 'react'
 import styles from './index.module.scss'
 import Image from 'next/image'
 
+import { GiUpgrade } from "react-icons/gi";
+
 type Props = {
     img: string,
     title: string,
@@ -27,6 +29,10 @@ const Card = ({img, title, level, earning, first = false, left = false}: Props) 
         <div className={styles.card_level}>
             {level} lvl
         </div>
+        <button className={styles.card_upgrade}>
+            Upgrade
+            <GiUpgrade fontSize={14} className={styles.card_upgrade_icon}/>
+        </button>
     </div>
   )
 }

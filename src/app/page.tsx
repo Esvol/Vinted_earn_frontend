@@ -9,9 +9,6 @@ export default function Home() {
   return (
     <section className={styles.home}>
       <div className={styles.home_cards}>
-        {/* <div className={styles.home_cards_progress}>
-          12%
-        </div> */}
         <Card img={cap1} title='Green cap' level={1} earning={0.12} first={true} left={true}/>
         <Card img={trousers1} title='Green trousers' level={1} earning={0.17} left={true}/>
       </div>
@@ -21,9 +18,6 @@ export default function Home() {
       </div>
 
       <div className={styles.home_cards}>
-        {/* <div className={styles.home_cards_progress}>
-            50%
-        </div> */}
         <Card img={tshirt1} title='Green t-shirt' level={1} earning={0.21} first={true} />
         <Card img={sneakers1} title='Green sneakers' level={1} earning={0.14}/>
       </div>

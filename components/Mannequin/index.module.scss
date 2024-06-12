@@ -6,14 +6,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    gap: 2rem;
     // border: 1px solid red;
 
+    &_title{
+        position: absolute;
+        top: 0;
+    }
+
     &_icon{
-        position: relative;
+        position: absolute;
+        bottom: 5.5rem;
 
         &_img{
             width: clamp(440px, 40vw, 500px);
             min-height: 500px;
+            height: 100%;
+            width: 500px;
         }
 
         &::before{
@@ -21,9 +30,9 @@
             content: '';
             top: 170px;
             right: -50px;
-            width: 220px;
+            width: clamp(220px, 10vw, 100px);
             height: 1px;
-            background-color: rgb(80, 36, 36);
+            background-color: rgb(var(--greyscale-level-5));
         }
 
         &::after{
@@ -33,36 +42,56 @@
             left: -40px;
             width: 250px;
             height: 1px;
-            background-color: black;
+            background-color: rgb(var(--greyscale-level-5));
         }
     }
 
     &_earn{
         margin-top: 20px;
+        padding: 0 10px;
         width: 100%;
-        padding: 0px 40px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        // justify-content: space-between;
-        gap: 4px;
 
-        &_info{
+        &_timer, &_amount{
+            cursor: pointer;
+            padding: 5px 0px;
+            font-size: 14px;
+            min-height: 30px;
+            min-width: 110px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            height: 100%;
-            padding: 0px 12px;
-            border-radius: 4px;
+            gap: 4px;
+            // color: rgb(var(--greyscale-level-1), 0.9);
+            // background-color:  rgba(var(--primarylightexperimental), 0.1);
+            background-color:  rgba(var(--success-dark), 0.8); // rgb(14, 95, 106);
             color: rgb(var(--greyscale-level-7), 0.9);
-            border: 1px solid rgb(var(--greyscale-level-4), 0.7);
-            background-color: rgb(var(--success-dark), 0.8);
+            box-shadow: 0px 0px 5px 3px rgb(var(--greyscale-level-5), 0.6);
+            transition: var(--transition);
 
-            &_timer{
-                animation: jump 3s linear infinite;
+            p{
+                text-align: center;
+                min-width: 50px;
             }
+
+            // &:hover{
+            //     color: rgb(var(--greyscale-level-1), 0.8);
+            //     background-color:  rgba(var(--primarylightexperimental), 0.1);
+            //     box-shadow: 0px 0px 4px 3px rgb(var(--greyscale-level-4), 0.5);
+            // }
+        }
+
+        &_timer{
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        &_amount{
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;  
         }
 
         &_claim{
@@ -71,53 +100,145 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 120px;
-            gap: 8px;
+            min-height: 40px;
+            min-width: 160px;
+            border-radius: 4px;
             padding: 10px 30px;
-            border-radius: 6px;
             color: rgb(var(--greyscale-level-7), 1);
             font-weight: 600;
             background-color: rgba(94, 94, 94, 0.549);
             transition: var(--transition);
 
-            div{
+            &_container{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &_wait{
+                    margin-right: 8px;
+                    animation: spin 4s linear infinite;
+                    z-index: 4;
+                }
+            }
+
+            span{
+                z-index: 4;
                 min-width: 50px;
             }
 
-            &_wait{
-                animation: spin 4s linear infinite;
+            &_progress{
+                position: absolute;
+                border-radius: 4px;
+                left: 0;
+                content: '';
+                height: 100%;
+                background-color: rgb(17, 125, 30);
+                z-index: 1;
+                transition: width 1s linear, background-color 0.25s ease-in-out;
             }
 
             &:hover{                
-                background-color: rgb(17, 125, 30);
+                background-color: rgba(125, 19, 17, 0.375);
+                color: rgb(var(--greyscale-level-5));
             }
+        }
 
-            &::after{
-                content: '';
-                position: absolute;
-            }
+        &_line{
+            width: 30px;
+            height: 1px;
+            border: 1px dashed rgb(var(--greyscale-level-5));
         }
     }
 
+    &_effects{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        user-select: none;
+
+        &_spark{
+            z-index: 10;
+            position: absolute;
+            transform: translate(50%, -50%);
+            top: 50%;
+            left: -5%;
+            width: max-content;
+            height: max-content;
+            transition: var(--transition);
+        }
+
+        &_cap, &_tshirt, &_trousers, &_sneakers{
+            transform: translate(50%, -50%);
+            position: absolute;
+            transition: all 0.75s ease-in-out;
+        }
+    
+        &_cap{
+            // top: 6%;
+            // right: 37%;
+            // transform: scaleX(-1);
+            top: 13%;
+            right: 52%;
+            width: 100px;
+            height: 100px;
+        }
+    
+        &_tshirt{
+            top: 33%;
+            right: 50%;
+            width: 200px;
+            height: 200px;
+        }
+    
+        &_trousers{
+            top: 61%;
+            right: 50%;
+            width: 200px;
+            height: 200px;
+        }
+    
+        &_sneakers{
+            top: 83%;
+            right: 51%;
+            width: 160px;
+            height: 160px;
+        }
+    }
+
+    
     &::before{
         position: absolute;
         content: '';
-        bottom: 50px;
+        bottom: 80px;
         right: -50px;
         width: 220px;
         height: 1px;
-        background-color: rgb(80, 36, 36);
+        background-color: rgb(var(--greyscale-level-5));
     }
 
     &::after{
         position: absolute;
         content: '';
-        bottom: 230px;
+        bottom: 270px;
         left: -40px;
         width: 250px;
         height: 1px;
-        background-color: black;
+        background-color: rgb(var(--greyscale-level-5));
     }
+}
+
+.move_left{
+    opacity: 0;
+    right: 100% !important;
+    width: 50px;
+    height: 50px;
+}
+
+.move_right{
+    opacity: 0;
+    right: 0% !important;
+    width: 50px;
+    height: 50px;
 }
 
 @keyframes spin {
@@ -146,3 +267,12 @@
         transform: translateY(0);
       }
 }
+
+@keyframes spark {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-1000px);
+    }
+  }

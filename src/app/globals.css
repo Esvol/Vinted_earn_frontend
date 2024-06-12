@@ -40,8 +40,11 @@
   --greyscale-level-5: 201, 201, 201;
   --greyscale-level-6: 242, 242, 242;
   --greyscale-level-7: 255, 255, 255;
+  --primarylightexperimental: 237, 249, 249;
 
   --link-parameters-text-color: rgba(var(--primary-default),1);
+
+  --green-light: 224, 253, 96;
 
   --transition: all 0.25s ease-in-out;
 }
@@ -102,6 +105,10 @@ input, button{
   outline: 0px;
 }
 
+button{
+  cursor: pointer;
+}
+
 section{
   min-width: 300px;
   max-width: 1280px;
@@ -118,6 +125,9 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (prefers-color-scheme: dark) {
