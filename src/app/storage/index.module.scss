@@ -44,9 +44,10 @@
         &_clothes{
             padding: 12px;
             border-radius: 12px;
-            // background-color: rgb(var(--greyscale-level-4), 0.2);
-            // background-color: #0077824c;
-            background-color: #85cbd2;
+            // background-color: #076d4857;
+            background-color: #288b814f;
+            border: 1px solid #0f1b076b;
+            box-shadow: 0px 0px 4px 3px rgba(24, 119, 226, 0.173);
 
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -63,7 +64,7 @@
                 gap: 10px;
                 padding: 8px;
                 border-radius: 4px;
-                // border: 1px solid rgb(var(--greyscale-level-4), 0.6);
+                background-color: #e6e2e2bb;
                 border: 1px solid rgb(var(--greyscale-level-7), 1);
 
                 &_img{
@@ -72,11 +73,13 @@
                 }
 
                 p{
+                    width: 100%;
+                    text-align: center;
                     font-size: 20px;
-                    color: rgb(var(--greyscale-level-1), 1);
-                    padding: 8px 12px;
+                    color: aliceblue;
+                    padding: 8px 0;
                     border-radius: 6px;
-                    background-color: rgb(var(--success-medium));
+                    background-color: #61799D;
                 }
             }
 
@@ -90,15 +93,14 @@
                 padding: 12px;
 
                 h1{
-                    color: rgba(var(--warning-default), 0.8);
-                    color: rgba(var(--greyscale-level-7), 1);
+                    color: #333850;
                     font-size: 28px;
                     font-weight: 700;
                 }
 
                 &_text{
                     width: 70%;
-                    color: rgba(var(--greyscale-level-7), 1);
+                    color: #07517F;
                     font-size: 18px;
                 }
 
@@ -110,17 +112,36 @@
                     align-items: center;
     
                     &_price{
-                        padding: 12px 20px;
+                        z-index: 2;
+                        height: 58px;
+                        margin-right: -4px;
+                        padding: 14px 20px;
                         border-top-left-radius: 50%;
                         border-bottom-left-radius: 50%;
-                        background-color: antiquewhite;
+                        background-color: #739f3d;
+                        color: rgb(var(--greyscale-level-7), 1);
                         font-size: 24px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        border: 1px solid rgba(0, 0, 0, 0.414);
                     }
 
                     button{
                         height: 54px;
+                        font-size: 24px;
+                        font-family: 'Black Ops One';
                         padding: 0 24px;
-                        background-color: rgba(var(--expose-default), 1);
+                        background-color: #FBD77C;
+                        color: #333850cb;
+                        border: 2px solid rgba(0, 0, 0, 0.226);
+                        transition: var(--transition);
+
+                        &:hover{
+                            background-color: #facd59;
+                            color: #333850f1;
+                            border: 2px solid rgba(0, 0, 0, 0.508);
+                        }
                     }
                 }
             }
@@ -128,7 +149,7 @@
             &_details{
                 grid-column: 1 / 5;
                 grid-row: 4 / 5;
-                padding: 10px;
+                padding: 12px 0 0;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -137,32 +158,43 @@
 
                 &_box{
                     height: 100%;
-                    padding: 0 60px;
                     border-radius: 8px;
-                    background-color: #4d777a;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     gap: 40px;
 
                     &_was, &_will{
+                        padding: 4px;
                         position: relative;
-                        background-color: orange;
-                        padding: 8px 20px;
-                        border-radius: 6px;
+                        // background-color: #fdef9e;
+                        // border: 1px solid black;
+                        color: #333850;
+                        border-radius: 8px;
+                        // width: 160px;
+                        height: 85px;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
+                        justify-content: center;
+                        gap: 4px;
 
-                        &::after{
-                            position: absolute;
-                            content: '';
-                            transform: translate(50%, -50%);
-                            top: 50%;
-                            left: -40%;
-                            width: 90%;
-                            height: 1px;
-                            background-color: hsl(0, 0%, 0%);
+                        div{
+                            border-radius: 8px;
+                            // border: 1px solid red;
+                            background-color: #e3da97;
+                            padding: 8px 15px;
+                            font-size: 24px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-family: 'Black Ops One';
+                        }
+
+                        p{
+                            width: max-content;
+                            text-align: center;
+                            text-wrap: wrap;
                         }
                     }
 
@@ -174,6 +206,16 @@
 
                 }
             }
+        }
+
+        &_upgrade{
+            width: 100%;
+            padding: 10px 40px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(-1);
         }
     }
 
