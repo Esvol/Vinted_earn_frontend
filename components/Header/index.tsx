@@ -1,4 +1,4 @@
-
+'use client'
 import React from 'react'
 import styles from './index.module.scss'
 import Link from 'next/link'
@@ -13,9 +13,20 @@ import { empty_avatar } from '../../img/images';
 import { GrCircleQuestion } from "react-icons/gr";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Navigation from '../Navigation';
+import { useCurrentQuery } from '@/redux/services/auth';
 
 
 const Header = () => {
+    const {data: user, isLoading} = useCurrentQuery();
+
+    const loginWithGoogle = () => {
+        window.open('http://localhost:2000/auth/google/callback', '_self')
+    }
+
+    const logout = () => {
+        window.open("http://localhost:2000/logout","_self")
+    }
+
   return (
     <div className={styles.header}>
         <header className={styles.header_main}>
@@ -52,9 +63,25 @@ const Header = () => {
                         </div>
 
                         <div className={styles.header_main_container_flexbox_account_info}>
-                            <Image src={empty_avatar} alt='' width={30} height={30} className={styles.header_main_container_flexbox_account_info_avatar}/>
-                            <MdOutlineArrowDropDown fontSize={14} color='rgb(153, 153, 153)' style={{cursor: 'pointer'}}/>
-                            <button>Sell now</button>
+                            {
+                                user && user._id ?
+                                (
+                                    <>
+                                        <Image src={empty_avatar} alt='' width={30} height={30} className={styles.header_main_container_flexbox_account_info_avatar} onClick={logout}/>
+                                        <MdOutlineArrowDropDown fontSize={14} color='rgb(153, 153, 153)' style={{cursor: 'pointer'}}/>
+                                        <button>Sell now</button>
+                                    </>
+                                )
+                                : 
+                                (
+                                    <>
+                                        <p className={styles.header_main_container_flexbox_account_info_login} onClick={loginWithGoogle}>
+                                            Sign In With Google
+                                        </p>
+                                    </>
+                                )
+                            }
+                            
                             <GrCircleQuestion fontSize={24} color='rgb(153, 153, 153)'/>
                             <div className={styles.header_main_container_flexbox_account_info_language}>
                                 EN
@@ -97,7 +124,6 @@ const Header = () => {
             </div>
         </div>
 
-        <Navigation />
     </div>
   )
 }

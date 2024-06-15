@@ -110,6 +110,7 @@
             transition: var(--transition);
 
             &_container{
+                position: relative;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -118,6 +119,25 @@
                     margin-right: 8px;
                     animation: spin 4s linear infinite;
                     z-index: 4;
+                }  
+            }
+
+            &_start{
+                cursor: pointer;
+                z-index: 6;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                min-height: 40px;
+                min-width: 160px;
+                border-radius: 4px;
+                background-color: rgba(var(--success-default), 0.85);
+                transition: var(--transition);
+
+                &:hover{
+                    background-color: rgba(var(--success-dark), 0.9) !important;
+                    color: rgb(var(--greyscale-level-7), 0.9) !important;
                 }
             }
 

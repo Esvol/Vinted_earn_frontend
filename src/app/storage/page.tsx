@@ -31,59 +31,6 @@ const nav = [
   },
 ]
 
-const storageCard = [
-  {
-    level: 1,
-    speed: 0.24,
-    title: 'Basic Green',
-    headline: 'Green sneakers, slow edition',
-    text: 'These entry-level running shoes have minimal features and quality, providing basic comfort and support. Ideal for everyday wear, but not intended for intense sports or long-term use.',
-    image: sneakers1,
-    purchased: false,
-    locked: false,
-  },
-  {
-    level: 2,
-    speed: 0.28,
-    title: 'Royal Sapphire',
-    headline: '',
-    text: '',
-    image: sneakers1,
-    purchased: false,
-    locked: true,
-  },
-  {
-    level: 3,
-    speed: 0.33,
-    title: 'Gleaming Emerald',
-    headline: '',
-    text: '',
-    image: sneakers1,
-    purchased: false,
-    locked: true,
-  },
-  {
-    level: 4,
-    speed: 0.38,
-    title: 'Radiant Ruby',
-    headline: '',
-    text: '',
-    image: sneakers1,
-    purchased: false,
-    locked: true,
-  },
-  {
-    level: 5,
-    speed: 0.45,
-    title: 'Epic Galaxy',
-    headline: '',
-    text: '',
-    image: sneakers1,
-    purchased: false,
-    locked: true,
-  },
-]
-
 const Storage = () => {
   return (
     <section className={styles.storage}>
@@ -106,7 +53,7 @@ const Storage = () => {
           {
             cards.sneakers.map((card, index) => (
               <>
-                <StorageSmallCard key={index} speed={card.speed} level={card.level} image={card.image} title={card.title} purchased={card.purchased} locked={card.locked}/>
+                <StorageSmallCard key={index} speed={card.speed} level={card.level} image={card.image} title={card.title} purchased={false} locked={index !== 0 ? true : false}/>
                 {
                   index !== (cards.sneakers.length - 1) 
                     && <Image src={storageLine} alt='line' width={20} height={20} style={{transform: `${index % 2 == 1 ? 'scaleY(-1)' : ''}`}}/>
