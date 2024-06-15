@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './index.module.scss'
 import Image from 'next/image'
-import { cap1, coin, mannequin, sneakers1, trousers1, tshirt1 } from '../../img/images'
+import { cap3, coin, mannequin, sneakers3, trousers3, tshirt3 } from '../../img/images'
 import sparkGIF from '../../img/spark.gif'
 
 import { LuCircleDashed } from "react-icons/lu";
@@ -98,10 +98,10 @@ const Mannequin = () => {
           {
             isEarning && <Image src={sparkGIF} alt="GIF"  className={styles.mannequin_effects_spark}/>
           }
-          <Image src={cap1} alt='' className={`${styles.mannequin_effects_cap} ${isEarning ? '' : `${styles.move_left}`}`} />
-          <Image src={tshirt1} alt=''  className={`${styles.mannequin_effects_tshirt} ${isEarning ? '' : `${styles.move_right}`}`} />
-          <Image src={trousers1} alt='' className={`${styles.mannequin_effects_trousers} ${isEarning ? '' : `${styles.move_left}`}`} />
-          <Image src={sneakers1} alt='' className={`${styles.mannequin_effects_sneakers} ${isEarning ? '' : `${styles.move_right}`}`} />
+          <Image src={cap3} alt='' className={`${styles.mannequin_effects_cap} ${isEarning ? '' : `${styles.move_left}`}`} />
+          <Image src={tshirt3} alt=''  className={`${styles.mannequin_effects_tshirt} ${isEarning ? '' : `${styles.move_right}`}`} />
+          <Image src={trousers3} alt='' className={`${styles.mannequin_effects_trousers} ${isEarning ? '' : `${styles.move_left}`}`} />
+          <Image src={sneakers3} alt='' className={`${styles.mannequin_effects_sneakers} ${isEarning ? '' : `${styles.move_right}`}`} />
       </div>
     </div>
   )

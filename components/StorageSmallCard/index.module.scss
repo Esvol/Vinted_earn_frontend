@@ -1,0 +1,94 @@
+.storageCard{
+    cursor: pointer;
+    position: relative;
+
+    &_container{
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        border-radius: 6px;
+        background-color: rgba(248, 243, 243, 0.858);
+        border: 1px solid rgb(105, 104, 104);
+        transition: var(--transition);
+
+        &_level{
+            height: 100%;
+            padding: 4px 6px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            p{
+                color: rgba(0, 0, 0, 0.647);
+                border-radius: 4px;
+                font-weight: 600;
+            }
+
+            span{
+                width: 80px;
+                font-size: 14px;
+            }
+        }
+
+        &:hover{
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgba(22, 22, 22, 0.984);
+        }
+    }
+}
+
+.locked, .purchased{
+    z-index: 2;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    border-radius: 6px;
+    padding: 3px;
+    top: 0;
+    transition: var(--transition);
+
+    &_icon{
+        width: 25px;
+        height: 25px;
+        opacity: 0.8;
+    }
+}
+
+.locked{
+    border: 2px solid rgba(255, 0, 0, 0.354);
+    background-color: rgba(var(--warning-color), 0.177);
+
+    &_icon{
+        color: rgb(176, 0, 0);
+    }
+
+    &:hover{
+        border: 2px solid #ff00007b;
+        background-color: rgba(126, 7, 7, 0.299);
+    }
+}
+
+.purchased{
+    border: 2px solid rgba(0, 255, 76, 0.354);
+    background-color: rgba(var(--success-color), 0.177);
+
+    &_icon{
+        color: rgb(0, 176, 9);
+    }
+
+    &:hover{
+        border: 2px solid rgba(0, 255, 76, 0.455);
+        background-color: rgba(7, 126, 23, 0.397);
+    }
+}
+
+.none{
+    display: none;
+}

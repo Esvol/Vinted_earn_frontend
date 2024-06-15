@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './index.module.scss'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 
 import { GiUpgrade } from "react-icons/gi";
 
 type Props = {
-    img: string,
+    img: string | StaticImageData,
     title: string,
     level: number,
     earning: number,
