@@ -12,12 +12,13 @@ import { IoHeartOutline } from "react-icons/io5";
 import { empty_avatar } from '../../img/images';
 import { GrCircleQuestion } from "react-icons/gr";
 import { RxHamburgerMenu } from "react-icons/rx";
-import Navigation from '../Navigation';
-import { useCurrentQuery } from '@/redux/services/auth';
+
+import { useSelector } from 'react-redux'
+import { selectUser } from '@/redux/slices/auth'
 
 
 const Header = () => {
-    const {data: user, isLoading} = useCurrentQuery();
+    const user = useSelector(selectUser);
 
     const loginWithGoogle = () => {
         window.open('http://localhost:2000/auth/google/callback', '_self')

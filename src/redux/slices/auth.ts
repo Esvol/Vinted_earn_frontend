@@ -4,13 +4,8 @@ import { StaticImageData } from 'next/image'
 import { authApi } from '../services/auth'
 
 export type Item = {
-    type: 'cap' | 'tshirt' | 'trousers' | 'sneakers' | 'timer',
+    type: 'cap' | 'tshirt' | 'trousers' | 'sneakers' | 'time',
     level: number,
-    speed: number,
-    title: string,
-    headline: string,
-    text: string,
-    image: string | StaticImageData,
 }
 
 export type User = {
@@ -20,9 +15,10 @@ export type User = {
     displayName: string,
     createdAt: string,
     updatedAt: string,
-    coins: number,
+    balance: number,
     inventory: Item[],
-    friends: string[],
+    referrals: string[],
+    referralLink: string,
     isStarted: boolean,
 }
 
@@ -42,17 +38,17 @@ export const authSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-        .addMatcher(authApi.endpoints.current.matchFulfilled, (state, action) => {
-            state.user = action.payload;
-            state.status = 'success';
-          })
-        .addMatcher(authApi.endpoints.current.matchRejected, (state, action) => {
-            state.user = null;
-            state.status = 'rejected'
-        })
-        .addMatcher(authApi.endpoints.current.matchPending, (state, action) => {
-            state.status = 'pending'
-        })
+            .addMatcher(authApi.endpoints.current.matchFulfilled, (state, action) => {
+                state.user = action.payload;
+                state.status = 'success';
+            })
+            .addMatcher(authApi.endpoints.current.matchRejected, (state, action) => {
+                state.user = null;
+                state.status = 'rejected'
+            })
+            .addMatcher(authApi.endpoints.current.matchPending, (state, action) => {
+                state.status = 'pending'
+            })
     },
 })
 

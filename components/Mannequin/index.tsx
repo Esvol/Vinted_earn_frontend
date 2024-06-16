@@ -13,57 +13,84 @@ import { FaCheckCircle } from "react-icons/fa";
 
 import { selectUser } from '@/redux/slices/auth'
 import { useSelector } from 'react-redux'
-import { useIsStartedMutation } from '@/redux/services/auth'
+import { useClaimCoinsMutation, useIsStartedMutation } from '@/redux/services/auth'
 
 const Mannequin = () => {
   const user = useSelector(selectUser)
+  const [claimCoins] = useClaimCoinsMutation();
 
+  const time = 20;
   const [isStarted] = useIsStartedMutation();
-
-  const [count, setCount] = useState(0);
-  const [timer, setTimer] = useState(10); // 10
-  const [progress, setProgress] = useState(0);
-  const [isEarning, setIsEarning] = useState(true);
+  const [coins, setCoins] = useState(0);
+  const [timer, setTimer] = useState(0);
+  const [endTime, setEndTime] = useState<number | null>(null);
+  const [progress, setProgress] = useState(100);
 
   useEffect(() => {
-    if(isEarning){
-      const intervalId = setInterval(() => {
-        setCount(prevCount => Number((prevCount + 0.42).toFixed(2)));
-        setTimer(prevTimer => {
-          if (prevTimer <= 0) {
-            clearInterval(intervalId);
-            setIsEarning(false);
-            return 0;
-          }
-  
-          const newTimer = prevTimer - 1;
-          setProgress((10 - newTimer) / 10 * 100);
-          return newTimer;
-        });
-      }, 1000);
+    const savedEndTime = localStorage.getItem('endTime');
 
+    if (savedEndTime !== null) {
+      setEndTime(parseInt(savedEndTime, 10));
+    } else {
+      const newEndTime = Date.now() + timer * 1000;
+      setEndTime(newEndTime);
+      localStorage.setItem('endTime', `${newEndTime}`);
+    }
+  }, []); 
+
+  useEffect(() => {
+    if (endTime !== null) {
+      const updateTimer = () => {
+        const remainingTime = Math.max((endTime - Date.now()) / 1000, 0);
+        const earnedCoins = ((time - Math.ceil(remainingTime)) * 0.45).toFixed(2)
+        if(remainingTime === 0){
+          clearInterval(intervalId)
+        }
+        else{
+          setProgress((Math.ceil(time - remainingTime) / time) * 100)
+        }
+        if(user?.isStarted){
+          setCoins(parseFloat(earnedCoins));
+        }
+        setTimer(Math.ceil(remainingTime));
+      };
+      const intervalId = setInterval(updateTimer, 1000);
+      updateTimer(); 
       return () => clearInterval(intervalId);
     }
-  }, [isEarning]);
+
+  }, [endTime, user?.isStarted]);
 
   const hours = Math.floor(timer / 3600);
   const minutes = Math.floor((timer % 3600) / 60);
 
-  const handleClaim = () => {
-    setCount(0)
-    setTimer(10)
-    setProgress(0)
-    setIsEarning(true)
-  }
-
+  const handleClaim = async () => {
+    try {
+      if(user){
+        await claimCoins({coins}).unwrap()
+          .then(() => {
+          })
+          .catch(error => {
+              console.log(error);
+              throw new Error(error);
+          })
+      }
+    } catch (error) {
+      
+    }
+    const newEndTime = Date.now() + time * 1000; // 60 секунд
+    setTimer(time);
+    setEndTime(newEndTime); 
+    localStorage.setItem('endTime', `${newEndTime}`); 
+  };
+  
   const handleIsStart = async () => {
     try {
       if(user){
         await isStarted().unwrap()
           .then(() => {
               // toast.success(dict.data_saved);
-              setTimer(10)
-              setIsEarning(true)
+              handleClaim()
           })
           .catch(error => {
               // toast.error(dict.data_notSaved);
@@ -76,11 +103,11 @@ const Mannequin = () => {
     }
   }
 
-
   return (
     <div className={styles.mannequin}>
       <div className={styles.mannequin_title}>
-        <h1>Your mannequin</h1>
+        {/* <h1>Your mannequin</h1> */}
+        <h1>Remaining Time: {timer} seconds</h1>
       </div>
 
       <div className={styles.mannequin_icon}> 
@@ -90,17 +117,16 @@ const Mannequin = () => {
       <div className={styles.mannequin_earn}>
         <div className={styles.mannequin_earn_amount}>
           <Image src={coin} alt='coin' width={16} height={16} style={{marginBottom: '1px', zIndex: 3}}/>
-          <p> {count} </p>  
+          <p> {coins} </p>  
         </div>
 
         <div className={styles.mannequin_earn_line}></div>
-
-        <button className={styles.mannequin_earn_claim} onClick={!isEarning ? handleClaim : () => {}}>
+        <button className={styles.mannequin_earn_claim}  onClick={timer === 0 ? handleClaim : () => {}}> 
           {
             user && user.isStarted === true ? (
               <div className={styles.mannequin_earn_claim_container}>
                 {
-                  !isEarning ? (
+                  timer === 0 ? (
                     <>
                       <FaCheckCircle width={16} height={16} style={{ zIndex: 3}}/>
                       <span>Claim</span>
@@ -123,28 +149,6 @@ const Mannequin = () => {
               </div>
             )
           }
-            {/* {
-              isEarning && user.isStarted === true ? (
-                <div className={styles.mannequin_earn_claim_container}>
-                  <FaCheckCircle width={16} height={16} style={{ zIndex: 3}}/>
-                  <span>Claim</span>
-                </div>
-              ) : (
-                <div className={styles.mannequin_earn_claim_container}>
-                  <LuCircleDashed fontSize={16} className={styles.mannequin_earn_claim_container_wait}/>
-                  <span>Farming</span>
-                </div>
-              )
-            }
-
-            {
-              user.isStarted === false &&
-              (
-                <div className={styles.mannequin_earn_claim_start}>
-                  Start
-                </div>
-              )
-            } */}
             <div className={styles.mannequin_earn_claim_progress} style={{ width: `${progress}%` }}></div>
         </button>
 
@@ -159,12 +163,12 @@ const Mannequin = () => {
 
       <div className={styles.mannequin_effects}>
           {
-            isEarning && <Image src={sparkGIF} alt="GIF"  className={styles.mannequin_effects_spark}/>
+            timer !== 0 && <Image src={sparkGIF} alt="GIF"  className={styles.mannequin_effects_spark}/>
           }
-          <Image src={cap0} alt='' className={`${styles.mannequin_effects_cap} ${isEarning ? '' : `${styles.move_left}`}`} />
-          <Image src={tshirt0} alt=''  className={`${styles.mannequin_effects_tshirt} ${isEarning ? '' : `${styles.move_right}`}`} />
-          <Image src={trousers0} alt='' className={`${styles.mannequin_effects_trousers} ${isEarning ? '' : `${styles.move_left}`}`} />
-          <Image src={sneakers0} alt='' className={`${styles.mannequin_effects_sneakers} ${isEarning ? '' : `${styles.move_right}`}`} />
+          <Image src={cap0} alt='' className={`${styles.mannequin_effects_cap} ${timer !== 0  ? '' : `${styles.move_left}`}`} />
+          <Image src={tshirt0} alt=''  className={`${styles.mannequin_effects_tshirt} ${timer !== 0  ? '' : `${styles.move_right}`}`} />
+          <Image src={trousers0} alt='' className={`${styles.mannequin_effects_trousers} ${timer !== 0  ? '' : `${styles.move_left}`}`} />
+          <Image src={sneakers0} alt='' className={`${styles.mannequin_effects_sneakers} ${timer !== 0  ? '' : `${styles.move_right}`}`} />
       </div>
     </div>
   )

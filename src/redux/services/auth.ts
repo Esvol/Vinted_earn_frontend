@@ -17,9 +17,17 @@ export const authApi = api.injectEndpoints({
             }),
             invalidatesTags: ['User'],
         }),
+        claimCoins: builder.mutation<void, {coins: number}>({
+            query: (data) => ({
+                url: '/claim',
+                method: 'POST',
+                body: data
+            }),
+            invalidatesTags: ['User'],
+        }),
     })
 });
 
-export const { useCurrentQuery, useIsStartedMutation} = authApi
+export const { useCurrentQuery, useIsStartedMutation, useClaimCoinsMutation} = authApi
 
-export const { endpoints: {current, isStarted} } = authApi
+export const { endpoints: {current, isStarted, claimCoins} } = authApi

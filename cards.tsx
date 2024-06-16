@@ -8,7 +8,7 @@ import {
 
 export const cards = {
   cap: [
-      {
+        {
           level: 1,
           speed: 0.24,
           title: 'Basic Green',
@@ -175,56 +175,46 @@ export const cards = {
           image: sneakers5,
         },
   ],
-  timer: [
+  time: [
     {
       level: 1,
-      speed: 0.24,
+      speed: 10800,// 3 hours
       title: 'Basic Green',
       headline: 'Green sneakers, slow edition',
       text: 'These entry-level running shoes have minimal features and quality, providing basic comfort and support. Ideal for everyday wear, but not intended for intense sports or long-term use.',
       image: sneakers1,
-      purchased: false,
-      locked: false,
     },
     {
       level: 2,
-      speed: 0.28,
+      speed: 14400, // 4 hours
       title: 'Royal Sapphire',
       headline: '',
       text: '',
       image: sneakers2,
-      purchased: false,
-      locked: true,
     },
     {
       level: 3,
-      speed: 0.33,
+      speed: 21600, // 6 hours
       title: 'Radiant Ruby',
       headline: '',
       text: '',
       image: sneakers3,
-      purchased: false,
-      locked: true,
     },
     {
       level: 4,
-      speed: 0.38,
+      speed: 43200,// 12 hours
       title: 'Honeyed Amber',
       headline: '',
       text: '',
       image: sneakers4,
-      purchased: false,
-      locked: true,
     },
     {
       level: 5,
-      speed: 0.45,
+      speed: 86400, // 24 hours
       title: 'Epic Galaxy',
       headline: '',
       text: '',
       image: sneakers5,
-      purchased: false,
-      locked: true,
     },
   ]
 }

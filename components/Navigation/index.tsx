@@ -1,10 +1,16 @@
+'use client'
+
 import React from 'react'
 import styles from './index.module.scss'
 import Image from 'next/image'
 import { coin } from '../../img/images'
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
+import { selectUser } from '@/redux/slices/auth'
 
 const Navigation = () => {
+    const user = useSelector(selectUser);
+
   return (
     <section className={styles.navigation}>
         <div className={styles.navigation_left}>
@@ -12,7 +18,7 @@ const Navigation = () => {
                 <Link href={'/'}>
                     <Image src={coin} alt='' width={36} height={36} className={styles.navigation_left_balance_icon}/>
                 </Link>
-                <p>42</p>
+                <p>{user && user.balance}</p>
             </div>
         </div>
 
