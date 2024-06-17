@@ -10,17 +10,25 @@ export const authApi = api.injectEndpoints({
             }),
             providesTags: ['User'],
         }),
-        isStarted: builder.mutation<void, void>({
+        isStarted: builder.mutation<User, void>({
             query: () => ({
                 url: '/is-started',
-                method: 'POST',
+                method: 'PATCH',
             }),
             invalidatesTags: ['User'],
         }),
-        claimCoins: builder.mutation<void, {coins: number}>({
+        claimCoins: builder.mutation<User, {coins: number}>({
             query: (data) => ({
                 url: '/claim',
-                method: 'POST',
+                method: 'PATCH',
+                body: data
+            }),
+            invalidatesTags: ['User'],
+        }),
+        updateItem: builder.mutation<User, {type: string, level: number, speed: number, image: string, price: number}>({
+            query: (data) => ({
+                url: '/update',
+                method: 'PATCH',
                 body: data
             }),
             invalidatesTags: ['User'],
@@ -28,6 +36,6 @@ export const authApi = api.injectEndpoints({
     })
 });
 
-export const { useCurrentQuery, useIsStartedMutation, useClaimCoinsMutation} = authApi
+export const { useCurrentQuery, useIsStartedMutation, useClaimCoinsMutation, useUpdateItemMutation} = authApi
 
-export const { endpoints: {current, isStarted, claimCoins} } = authApi
+export const { endpoints: {current, isStarted, claimCoins, updateItem} } = authApi

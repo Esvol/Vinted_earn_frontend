@@ -12,6 +12,12 @@
     &_title{
         position: absolute;
         top: 0;
+
+        h1{
+            font-family: 'Josefin Sans';
+            font-size: 26px;
+            font-weight: 700;
+        }
     }
 
     &_icon{
@@ -19,7 +25,6 @@
         bottom: 5.5rem;
 
         &_img{
-            width: clamp(440px, 40vw, 500px);
             min-height: 500px;
             height: 100%;
             width: 500px;
@@ -102,7 +107,6 @@
             justify-content: center;
             min-height: 40px;
             min-width: 160px;
-            border-radius: 4px;
             padding: 10px 30px;
             color: rgb(var(--greyscale-level-7), 1);
             font-weight: 600;
@@ -131,7 +135,6 @@
                 justify-content: space-around;
                 min-height: 40px;
                 min-width: 160px;
-                border-radius: 4px;
                 background-color: rgba(var(--success-default), 0.85);
                 transition: var(--transition);
 
@@ -148,7 +151,6 @@
 
             &_progress{
                 position: absolute;
-                border-radius: 4px;
                 left: 0;
                 content: '';
                 height: 100%;
@@ -193,34 +195,23 @@
         }
     
         &_cap{
-            // top: 6%;
-            // right: 37%;
-            // transform: scaleX(-1);
             top: 13%;
             right: 52%;
-            width: 100px;
-            height: 100px;
         }
     
         &_tshirt{
             top: 33%;
             right: 50%;
-            width: 200px;
-            height: 200px;
         }
     
         &_trousers{
             top: 61%;
             right: 50%;
-            width: 200px;
-            height: 200px;
         }
     
         &_sneakers{
             top: 83%;
             right: 51%;
-            width: 160px;
-            height: 160px;
         }
     }
 

@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { RootState } from '../store'
-import { StaticImageData } from 'next/image'
 import { authApi } from '../services/auth'
 
 export type Item = {
     type: 'cap' | 'tshirt' | 'trousers' | 'sneakers' | 'time',
     level: number,
+    speed: number,
+    image: string,
 }
 
 export type User = {

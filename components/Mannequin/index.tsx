@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './index.module.scss'
 import Image from 'next/image'
-import { cap0, coin, mannequin, sneakers0, trousers0, tshirt0 } from '../../img/images'
+import { coin, mannequin } from '../../img/images'
 import sparkGIF from '../../img/spark.gif'
 
 import { LuPartyPopper } from "react-icons/lu";
@@ -18,9 +18,16 @@ import { useClaimCoinsMutation, useIsStartedMutation } from '@/redux/services/au
 const Mannequin = () => {
   const user = useSelector(selectUser)
   const [claimCoins] = useClaimCoinsMutation();
-
-  const time = 20;
   const [isStarted] = useIsStartedMutation();
+
+  const time = user ? user?.inventory[4].speed * 3600 : undefined;
+  const speed = user?.inventory.reduce((acc, item) => {
+    if (item.type === 'time'){
+      return acc
+    }
+    return acc + item.speed
+  }, 0)
+
   const [coins, setCoins] = useState(0);
   const [timer, setTimer] = useState(0);
   const [endTime, setEndTime] = useState<number | null>(null);
@@ -31,18 +38,22 @@ const Mannequin = () => {
 
     if (savedEndTime !== null) {
       setEndTime(parseInt(savedEndTime, 10));
-    } else {
-      const newEndTime = Date.now() + timer * 1000;
+    } 
+    else if (user?.isStarted && time){
+      const newEndTime = Date.now() + time * 1000;
       setEndTime(newEndTime);
       localStorage.setItem('endTime', `${newEndTime}`);
     }
   }, []); 
 
   useEffect(() => {
-    if (endTime !== null) {
+    if (endTime !== null && time !== undefined && speed !== undefined) {
       const updateTimer = () => {
         const remainingTime = Math.max((endTime - Date.now()) / 1000, 0);
-        const earnedCoins = ((time - Math.ceil(remainingTime)) * 0.45).toFixed(2)
+        console.log('====================================');
+        console.log(remainingTime);
+        console.log('====================================');
+        const earnedCoins = ((time - Math.ceil(remainingTime)) * speed).toFixed(2)
         if(remainingTime === 0){
           clearInterval(intervalId)
         }
@@ -76,12 +87,15 @@ const Mannequin = () => {
           })
       }
     } catch (error) {
-      
+      console.log(error);
     }
-    const newEndTime = Date.now() + time * 1000; // 60 секунд
-    setTimer(time);
-    setEndTime(newEndTime); 
-    localStorage.setItem('endTime', `${newEndTime}`); 
+    
+    if(time !== undefined){
+      const newEndTime = Date.now() + time * 1000; // 60 секунд
+      setTimer(time);
+      setEndTime(newEndTime); 
+      localStorage.setItem('endTime', `${newEndTime}`); 
+    }
   };
   
   const handleIsStart = async () => {
@@ -106,12 +120,12 @@ const Mannequin = () => {
   return (
     <div className={styles.mannequin}>
       <div className={styles.mannequin_title}>
-        {/* <h1>Your mannequin</h1> */}
-        <h1>Remaining Time: {timer} seconds</h1>
+        <h1>{user?.displayName}`s mannequin</h1>
+        {/* <h1>Remaining Time: {timer} seconds</h1> */}
       </div>
 
       <div className={styles.mannequin_icon}> 
-          <Image src={mannequin} alt='mannequin' className={styles.mannequin_icon_img}/>
+          <Image src={mannequin} alt='mannequin' width={500} height={500} className={styles.mannequin_icon_img}/>
       </div>
 
       <div className={styles.mannequin_earn}>
@@ -165,10 +179,10 @@ const Mannequin = () => {
           {
             timer !== 0 && <Image src={sparkGIF} alt="GIF"  className={styles.mannequin_effects_spark}/>
           }
-          <Image src={cap0} alt='' className={`${styles.mannequin_effects_cap} ${timer !== 0  ? '' : `${styles.move_left}`}`} />
-          <Image src={tshirt0} alt=''  className={`${styles.mannequin_effects_tshirt} ${timer !== 0  ? '' : `${styles.move_right}`}`} />
-          <Image src={trousers0} alt='' className={`${styles.mannequin_effects_trousers} ${timer !== 0  ? '' : `${styles.move_left}`}`} />
-          <Image src={sneakers0} alt='' className={`${styles.mannequin_effects_sneakers} ${timer !== 0  ? '' : `${styles.move_right}`}`} />
+          <Image src={user ? user.inventory.filter(item => item.type === 'cap')[0].image : ''} width={100} height={100} alt='' className={`${styles.mannequin_effects_cap} ${timer !== 0  ? '' : `${styles.move_left}`}`} />
+          <Image src={user ? user.inventory.filter(item => item.type === 'tshirt')[0].image : ''} width={200} height={200} alt=''  className={`${styles.mannequin_effects_tshirt} ${timer !== 0  ? '' : `${styles.move_right}`}`} />
+          <Image src={user ? user.inventory.filter(item => item.type === 'trousers')[0].image : ''} width={200} height={200} alt='' className={`${styles.mannequin_effects_trousers} ${timer !== 0  ? '' : `${styles.move_left}`}`} />
+          <Image src={user ? user.inventory.filter(item => item.type === 'sneakers')[0].image : ''} width={160} height={160} alt='' className={`${styles.mannequin_effects_sneakers} ${timer !== 0  ? '' : `${styles.move_right}`}`} />
       </div>
     </div>
   )

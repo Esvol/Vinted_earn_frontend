@@ -3,22 +3,43 @@ import {
     cap1, cap2, cap3, cap4, cap5, 
     sneakers1, sneakers2, sneakers3, sneakers4, sneakers5, 
     tshirt1, tshirt2, tshirt3, tshirt4, tshirt5, 
-    trousers1, trousers2, trousers3, trousers4, trousers5, 
+    trousers1, trousers2, trousers3, trousers4, trousers5,
+    timer1, timer2, timer4, timer3, timer5, 
 } from "./img/images";
 
-export const cards = {
+export type Сard = {
+  level: number,
+  speed: number,
+  price: number,
+  title: string,
+  headline: string,
+  text: string,
+  image: string,
+}
+
+interface Cards {
+  cap: Сard[],
+  tshirt: Сard[],
+  trousers: Сard[],
+  sneakers: Сard[],
+  time: Сard[]
+}
+
+export const cards: Cards = {
   cap: [
         {
           level: 1,
           speed: 0.24,
+          price: 140,
           title: 'Basic Green',
-          headline: 'Green cap, slow edition',
-          text: 'These entry-level running shoes have minimal features and quality, providing basic comfort and support. Ideal for everyday wear, but not intended for intense sports or long-term use.',
+          headline: '',
+          text: '',
           image: cap1,
         },
         {
           level: 2,
           speed: 0.28,
+          price: 150,
           title: 'Royal Sapphire',
           headline: '',
           text: '',
@@ -27,6 +48,7 @@ export const cards = {
         {
           level: 3,
           speed: 0.33,
+          price: 160,
           title: 'Radiant Ruby',
           headline: '',
           text: '',
@@ -35,6 +57,7 @@ export const cards = {
         {
           level: 4,
           speed: 0.38,
+          price: 140,
           title: 'Honeyed Amber',
           headline: '',
           text: '',
@@ -43,6 +66,7 @@ export const cards = {
         {
           level: 5,
           speed: 0.45,
+          price: 140,
           title: 'Epic Galaxy',
           headline: '',
           text: '',
@@ -53,6 +77,7 @@ export const cards = {
       {
           level: 1,
           speed: 0.24,
+          price: 140,
           title: 'Basic Green',
           headline: 'Green t-shirt, slow edition',
           text: 'These entry-level running shoes have minimal features and quality, providing basic comfort and support. Ideal for everyday wear, but not intended for intense sports or long-term use.',
@@ -61,6 +86,7 @@ export const cards = {
         {
           level: 2,
           speed: 0.28,
+          price: 140,
           title: 'Royal Sapphire',
           headline: '',
           text: '',
@@ -69,6 +95,7 @@ export const cards = {
         {
           level: 3,
           speed: 0.33,
+          price: 140,
           title: 'Radiant Ruby',
           headline: '',
           text: '',
@@ -77,6 +104,7 @@ export const cards = {
         {
           level: 4,
           speed: 0.38,
+          price: 140,
           title: 'Honeyed Amber',
           headline: '',
           text: '',
@@ -85,6 +113,7 @@ export const cards = {
         {
           level: 5,
           speed: 0.45,
+          price: 140,
           title: 'Epic Galaxy',
           headline: '',
           text: '',
@@ -95,6 +124,7 @@ export const cards = {
       {
           level: 1,
           speed: 0.24,
+          price: 140,
           title: 'Basic Green',
           headline: 'Green t-shirt, slow edition',
           text: 'These entry-level running shoes have minimal features and quality, providing basic comfort and support. Ideal for everyday wear, but not intended for intense sports or long-term use.',
@@ -103,6 +133,7 @@ export const cards = {
         {
           level: 2,
           speed: 0.28,
+          price: 140,
           title: 'Royal Sapphire',
           headline: '',
           text: '',
@@ -111,6 +142,7 @@ export const cards = {
         {
           level: 3,
           speed: 0.33,
+          price: 140,
           title: 'Radiant Ruby',
           headline: '',
           text: '',
@@ -119,6 +151,7 @@ export const cards = {
         {
           level: 4,
           speed: 0.38,
+          price: 140,
           title: 'Honeyed Amber',
           headline: '',
           text: '',
@@ -127,6 +160,7 @@ export const cards = {
         {
           level: 5,
           speed: 0.45,
+          price: 140,
           title: 'Epic Galaxy',
           headline: '',
           text: '',
@@ -137,6 +171,7 @@ export const cards = {
       {
           level: 1,
           speed: 0.24,
+          price: 140,
           title: 'Basic Green',
           headline: 'Green sneakers, slow edition',
           text: 'These entry-level running shoes have minimal features and quality, providing basic comfort and support. Ideal for everyday wear, but not intended for intense sports or long-term use.',
@@ -145,76 +180,85 @@ export const cards = {
         {
           level: 2,
           speed: 0.28,
+          price: 140,
           title: 'Royal Sapphire',
-          headline: '',
-          text: '',
+          headline: 'Green cap, slow edition',
+          text: 'These entry-level running shoes have minimal features and quality, providing basic comfort and support. Ideal for everyday wear, but not intended for intense sports or long-term use.',
           image: sneakers2,
         },
         {
           level: 3,
           speed: 0.33,
+          price: 140,
           title: 'Radiant Ruby',
-          headline: '',
-          text: '',
+          headline: 'Ruby Blaze Performance Shoes',
+          text: 'Step up your game with these radiant ruby-red athletic shoes. Designed for runners, they offer superior comfort, stability, and energy return.',
           image: sneakers3,
         },
         {
           level: 4,
           speed: 0.38,
+          price: 140,
           title: 'Honeyed Amber',
-          headline: '',
-          text: '',
+          headline: 'Amber Glow Runners',
+          text: 'These amber-colored running shoes provide a delightful blend of comfort and durability. Perfect for long runs and outdoor adventures, they’ll have you feeling as cozy as a jar of honey on a sunny morning.',
           image: sneakers4,
         },
         {
           level: 5,
           speed: 0.45,
+          price: 140,
           title: 'Epic Galaxy',
-          headline: '',
-          text: '',
+          headline: 'Galactic Trailblazers',
+          text: 'Reach for the stars with these epic galaxy-themed sneakers. Advanced features, futuristic design, and out-of-this-world performance make them ideal for serious athletes and cosmic explorers.',
           image: sneakers5,
         },
   ],
   time: [
     {
       level: 1,
-      speed: 10800,// 3 hours
+      speed: 3,
+      price: 140,
       title: 'Basic Green',
       headline: 'Green sneakers, slow edition',
       text: 'These entry-level running shoes have minimal features and quality, providing basic comfort and support. Ideal for everyday wear, but not intended for intense sports or long-term use.',
-      image: sneakers1,
+      image: timer1,
     },
     {
       level: 2,
-      speed: 14400, // 4 hours
+      speed: 4, 
+      price: 140,
       title: 'Royal Sapphire',
       headline: '',
       text: '',
-      image: sneakers2,
+      image: timer2,
     },
     {
       level: 3,
-      speed: 21600, // 6 hours
+      speed: 6,
+      price: 140,
       title: 'Radiant Ruby',
       headline: '',
       text: '',
-      image: sneakers3,
+      image: timer3,
     },
     {
       level: 4,
-      speed: 43200,// 12 hours
+      speed: 12,
+      price: 140,
       title: 'Honeyed Amber',
       headline: '',
       text: '',
-      image: sneakers4,
+      image: timer4,
     },
     {
       level: 5,
-      speed: 86400, // 24 hours
+      speed: 24,
+      price: 140,
       title: 'Epic Galaxy',
       headline: '',
       text: '',
-      image: sneakers5,
+      image: timer5,
     },
   ]
 }

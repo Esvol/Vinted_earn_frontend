@@ -17,7 +17,7 @@ type Props = {
   purchased?: boolean,
 }
 
-const StorageCard = ({level, speed, image, title, locked = false, purchased = false}: Props) => {
+const StorageSmallCard = ({level, speed, image, title, locked = false, purchased = false}: Props) => {
   return (
     <div className={styles.storageCard}>
         <div className={styles.storageCard_container}>
@@ -40,4 +40,4 @@ const StorageCard = ({level, speed, image, title, locked = false, purchased = fa
   )
 }
 
-export default StorageCard
+export default StorageSmallCard

@@ -6,35 +6,31 @@ import Image, { StaticImageData } from 'next/image'
 
 import { GiUpgrade } from "react-icons/gi";
 import { useSelector } from 'react-redux';
-import { selectUser } from '@/redux/slices/auth';
+import { Item, selectUser } from '@/redux/slices/auth';
 
 type Props = {
-    img: string | StaticImageData,
+    card: Item & {time: number | undefined},
     title: string,
-    level: number,
-    earning: number,
     first?: boolean,
     left?: boolean,
 }
 
-const Card = ({img, title, level, earning, first = false, left = false}: Props) => {
-
-    const user = useSelector(selectUser)
+const Card = ({card, title, first = false, left = false}: Props) => {
 
   return (
     <div className={styles.card} style={{gridRow: left ? (first ? '1 / 9' : '12 / 20') : (first ? '2 / 10' : '13 / 21')}}>
         <div className={styles.card_icon}>
-            <Image src={img} alt='cap' width={156} height={156}/>
+            <Image src={card.image} alt='cap' width={156} height={156}/>
         </div>
         <div className={styles.card_info}>
             <div className={styles.card_info_details}>
                 <p>{title}</p>
             </div>
-            <p className={styles.card_info_earn}>{earning} coins / 1 hour</p>
+            <p className={styles.card_info_earn}>{card.speed} coins / {card.time} hour</p>
         </div>
 
         <div className={styles.card_level}>
-            {level} lvl
+            {card.level} lvl
         </div>
         <button className={styles.card_upgrade}>
             Upgrade

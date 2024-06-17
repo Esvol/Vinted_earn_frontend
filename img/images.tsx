@@ -1,53 +1,59 @@
-import empty_avatar from './empty_avatar.png'
-import coin from './coin.svg'
-import mannequin from './mannequin.svg'
+const empty_avatar = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/empty_avatar.png'
 
-import storageCap from './storage/storageCap.svg'
-import storageShirt from './storage/storageShirt.svg'
-import storageTrousers from './storage/storageTrousers.svg'
-import storageSneakers from './storage/storageSneakers.svg'
-import storageLine from './storage/storageLine.svg'
-import arrow from './storage/arrow.svg'
+const coin = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/coin.svg'
+const mannequin = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/mannequin.svg'
 
-import cap0 from './0lvl/cap0.svg'
-import tshirt0 from './0lvl/tshirt0.svg'
-import trousers0 from './0lvl/trousers0.svg'
-import sneakers0 from './0lvl/sneakers0.svg'
+const storageCap = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/storageCap.svg'
+const storageShirt = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/storageShirt.svg'
+const storageTrousers = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/storageTrousers.svg'
+const storageSneakers = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/storageSneakers.svg'
+const storageLine = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/storageLine.svg'
+const storageTimer = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/timer.svg'
+const arrow = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/arrow.svg'
 
-import timer from './timer.svg'
-import cap1 from './1lvl/cap1.svg'
-import tshirt1 from './1lvl/tshirt1.svg'
-import trousers1 from './1lvl/trousers1.svg'
-import sneakers1 from './1lvl/sneakers1.svg'
+const cap0 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/0lvl/cap0.svg'
+const tshirt0 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/0lvl/tshirt0.svg'
+const trousers0 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/0lvl/trousers0.svg'
+const sneakers0 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/0lvl/sneakers0.svg'
+const timer0 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/0lvl/timer0.svg'
 
-import cap2 from './2lvl/cap2.svg'
-import tshirt2 from './2lvl/tshirt2.svg'
-import trousers2 from './2lvl/trousers2.svg'
-import sneakers2 from './2lvl/sneakers2.svg'
+const cap1 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/1lvl/cap1.svg'
+const tshirt1 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/1lvl/tshirt1.svg'
+const trousers1 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/1lvl/trousers1.svg'
+const sneakers1 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/1lvl/sneakers1.svg'
+const timer1 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/1lvl/timer1.svg'
 
-import cap3 from './3lvl/cap3.svg'
-import tshirt3 from './3lvl/tshirt3.svg'
-import trousers3 from './3lvl/trousers3.svg'
-import sneakers3 from './3lvl/sneakers3.svg'
+const cap2 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/2lvl/cap2.svg'
+const tshirt2 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/2lvl/tshirt2.svg'
+const trousers2 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/2lvl/trousers2.svg'
+const sneakers2 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/2lvl/sneakers2.svg'
+const timer2 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/2lvl/timer2.svg'
 
-import cap4 from './4lvl/cap4.svg'
-import tshirt4 from './4lvl/tshirt4.svg'
-import trousers4 from './4lvl/trousers4.svg'
-import sneakers4 from './4lvl/sneakers4.svg'
+const cap3 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/3lvl/cap3.svg'
+const tshirt3 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/3lvl/tshirt3.svg'
+const trousers3 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/3lvl/trousers3.svg'
+const sneakers3 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/3lvl/sneakers3.svg'
+const timer3 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/3lvl/timer3.svg'
 
-import cap5 from './5lvl/cap5.gif'
-import tshirt5 from './5lvl/tshirt5.gif'
-import trousers5 from './5lvl/trousers5.gif'
-import sneakers5 from './5lvl/sneakers5.gif'
+const cap4 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/4lvl/cap4.svg'
+const tshirt4 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/4lvl/tshirt4.svg'
+const trousers4 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/4lvl/trousers4.svg'
+const sneakers4 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/4lvl/sneakers4.svg'
+const timer4 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/4lvl/timer4.svg'
+
+const cap5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5lvl/cap5.gif'
+const tshirt5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5lvl/tshirt5.gif'
+const trousers5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5lvl/trousers5.gif'
+const sneakers5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5lvl/sneakers5.gif'
+const timer5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5lvl/timer5.gif'
 
 export {
     empty_avatar, coin, mannequin, 
-    storageCap, storageShirt, storageTrousers, storageSneakers, storageLine, 
-    arrow, timer, 
-    cap0, tshirt0, trousers0, sneakers0, 
-    cap1, tshirt1, trousers1, sneakers1, 
-    cap2, tshirt2, trousers2, sneakers2, 
-    cap3, tshirt3, trousers3, sneakers3,
-    cap4, tshirt4, trousers4, sneakers4,
-    cap5, tshirt5, trousers5, sneakers5, 
+    storageCap, storageShirt, storageTrousers, storageSneakers, storageTimer, storageLine, arrow, 
+    cap0, tshirt0, trousers0, sneakers0, timer0,
+    cap1, tshirt1, trousers1, sneakers1, timer1,
+    cap2, tshirt2, trousers2, sneakers2, timer2, 
+    cap3, tshirt3, trousers3, sneakers3, timer3, 
+    cap4, tshirt4, trousers4, sneakers4, timer4,
+    cap5, tshirt5, trousers5, sneakers5, timer5, 
 }
