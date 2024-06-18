@@ -39,7 +39,6 @@ const Layout = ({children}: Props) => {
          )
         
       }
-        
     </div>
   )
 }

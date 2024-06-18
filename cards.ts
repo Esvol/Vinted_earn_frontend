@@ -4,7 +4,8 @@ import {
     sneakers1, sneakers2, sneakers3, sneakers4, sneakers5, 
     tshirt1, tshirt2, tshirt3, tshirt4, tshirt5, 
     trousers1, trousers2, trousers3, trousers4, trousers5,
-    timer1, timer2, timer4, timer3, timer5, 
+    timer1, timer2, timer4, timer3, timer5,
+    achievement1, 
 } from "./img/images";
 
 export type Сard = {
@@ -261,4 +262,142 @@ export const cards: Cards = {
       image: timer5,
     },
   ]
+}
+
+export type TotalDataTypes = 'totalClaimedCoins' | 'totalReferrals' | 'totalClaimedReferralCoins' | 'totalSpendedTime' | 'totalUpgradedLevels' | 'totalSwaps'
+
+export type Reward = number | {
+  type: 'accessory',
+  level: number,
+  speed: number,
+  image: string,
+}
+
+export type Achievement = {
+  level: number,
+  type: TotalDataTypes
+  title: string,
+  text: string,
+  image: string,
+  goal: number,
+  reward: Reward,
+  rewardText: string,
+  rewardType: string,
+}
+
+interface Achievements {
+  [key: string]:  Achievement[],
+}
+
+export const achievements: Achievements = {
+  fashion: [
+    {
+      level: 1,
+      type: 'totalUpgradedLevels',
+      title: 'First Touch',
+      text: 'Welcome to the marketplace! Make your first purchase and begin your adventure in the world of endless possibilities.',
+      image: achievement1,
+      goal: 1,
+      reward: 10,
+      rewardText: '10 coins',
+      rewardType: 'balance',
+    },
+    {
+      level: 2,
+      type: 'totalClaimedCoins',
+      title: 'Money Maker',
+      text: 'Collect 1,000 coins to fill your treasury with wealth. Keep amassing your fortune and become the ultimate tycoon!',
+      image: achievement1,
+      goal: 1000,
+      reward: 10,
+      rewardText: '10 coins',
+      rewardType: 'balance',
+    },
+    {
+      level: 3,
+      type: 'totalUpgradedLevels',
+      title: 'Fashion Monarch',
+      text: 'Ascend to the throne of style! Unlock the ultimate fashion level and become the true trendsetter.',
+      image: achievement1,
+      goal: 20,
+      reward: 1,
+      rewardText: '1 ticket',
+      rewardType: 'tickets',
+    },
+  ],
+  friendship: [
+    {
+      level: 1,
+      type: 'totalReferrals',
+      title: 'Social Starter',
+      text: 'Expand your social circle! Invite three friends to join you on this adventure and strengthen your community.',
+      image: achievement1,
+      goal: 3,
+      reward: {
+        type: 'accessory',
+        level: 1,
+        speed: 0.02,
+        image: ''
+      },
+      rewardText: '1 accessory',
+      rewardType: 'accessories',
+    },
+    {
+      level: 2,
+      type: 'totalClaimedReferralCoins',
+      title: 'Business family',
+      text: 'Reap the rewards of your social network! Earn 100 coins from the profits of your friends.',
+      image: achievement1,
+      goal: 100,
+      reward: 10,
+      rewardText: '10 coins',
+      rewardType: 'balance',
+    },
+    {
+      level: 3,
+      type: 'totalReferrals',
+      title: 'Community Builder',
+      text: 'Strengthen your connections! Invite five friends to join you on this adventure and create a thriving community together.',
+      image: achievement1,
+      goal: 5,
+      reward: 1,
+      rewardText: '1 ticket',
+      rewardType: 'tickets',
+    },
+  ],
+  timekeeper: [
+    {
+      level: 1,
+      type: 'totalSpendedTime',
+      title: 'Seasoned Player',
+      text: 'Dedication pays off! Spend a 100 hours in the game and showcase your commitment to the adventure.',
+      image: achievement1,
+      goal: 100,
+      reward: 10,
+      rewardText: '10 coins',
+      rewardType: 'balance',
+    },
+    {
+      level: 2,
+      title: 'Real deal',
+      type: 'totalSwaps',
+      text: 'Swap your coins for a real-world discount on the Swap page and unlock exclusive savings.',
+      image: achievement1,
+      goal: 1,
+      reward: 10,
+      rewardText: '10 coins',
+      rewardType: 'balance',
+    },
+    {
+      level: 3,
+      type: 'totalUpgradedLevels',
+      title: 'Eternal Timekeeper',
+      text: 'Own the ultimate timepiece! Purchase the most expensive 24-hour duration watch in the game and command time like never before.',
+      image: achievement1,
+      goal: 1,
+      reward: 1,
+      rewardText: '1 ticket',
+      rewardType: 'tickets',
+    },
+  ],
 }

@@ -70,7 +70,7 @@ const Storage = () => {
           }
         </div>
 
-        <StorageFullCard card={card} type={navigation} prevSpeed={prevSpeed} lastItem={userCard?.level === 5}/>
+        <StorageFullCard card={card} type={navigation} prevSpeed={prevSpeed} balance={user?.balance} lastItem={userCard?.level === 5}/>
 
         <div className={styles.storage_container_upgrade}>
           {

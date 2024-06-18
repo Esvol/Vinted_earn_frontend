@@ -4,6 +4,7 @@ import styles from './index.module.scss'
 import Image from 'next/image'
 import { arrow, coin, sneakers1 } from '../../img/images'
 import { useUpdateItemMutation } from '@/redux/services/auth'
+import toast from 'react-hot-toast'
 
 type Props = {
     // Card type, BUT IT DOES SEE IT!!!! 
@@ -18,23 +19,29 @@ type Props = {
     },
     type: string,
     prevSpeed: number,
-    lastItem: boolean
+    balance: number | undefined,
+    lastItem: boolean,
 }
 
-const StorageFullCard = ({type, card, prevSpeed, lastItem}: Props) => {
+const StorageFullCard = ({type, card, prevSpeed, lastItem, balance}: Props) => {
     const [updateItem] = useUpdateItemMutation();
 
     const handleUpgrade = async () => {
         try {
-            await updateItem({type, level: card.level, speed: card.speed, image: card.image, price: card.price})
-                .unwrap()
-                .then((user) => {
-                    console.log(user);
-                })
-                .catch(error => {
-                    console.log(error);
-                    throw new Error(error);
-                })
+            if(balance && balance >= card.price) {
+                await updateItem({type, level: card.level, speed: card.speed, image: card.image, price: card.price})
+                    .unwrap()
+                    .then((user) => {
+                        console.log(user);
+                        toast.success(`${card.title} was bought!`, {style: {backgroundColor: 'rgba(40, 134, 90, 0.7)', color: 'rgba(255, 255, 255)'}})
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        throw new Error(error);
+                    })
+            } else{
+                toast.error('Not enough coins for this update.', {style: {backgroundColor: 'rgba(208, 69, 85, 0.7)', color: 'rgba(255, 255, 255)'}})
+            }
         } catch (error) {
             console.log(error);
         }
@@ -44,7 +51,7 @@ const StorageFullCard = ({type, card, prevSpeed, lastItem}: Props) => {
     <div className={styles.clothes}>
 
         <div className={styles.clothes_icon}>
-            <Image src={card.image} alt='sneakers' width={250} height={250} className={styles.clothes_icon_img}/>
+            <Image src={card.image} alt='sneakers' width={250} height={250} className={styles.clothes_icon_img} onClick={() => toast('Hello')}/>
             <p>{card.level} level</p>
         </div>
         

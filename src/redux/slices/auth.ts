@@ -2,11 +2,25 @@ import { createSlice } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 import { authApi } from '../services/auth'
 
-export type Item = {
+export type inventoryItem = {
     type: 'cap' | 'tshirt' | 'trousers' | 'sneakers' | 'time',
     level: number,
     speed: number,
     image: string,
+}
+
+export type TotalData = {
+    totalClaimedCoins: number,
+    totalReferrals: number,
+    totalClaimedReferralCoins: number,
+    totalSpendedTime: number,
+    totalUpgradedLevels: number,
+    totalSwaps: number,
+}
+
+export type Achievement = {
+    type: 'fashion' | 'friendship' | 'timekeeper',
+    level: number,
 }
 
 export type User = {
@@ -17,7 +31,10 @@ export type User = {
     createdAt: string,
     updatedAt: string,
     balance: number,
-    inventory: Item[],
+    tickets: number,
+    inventory: inventoryItem[],
+    totalData: TotalData,
+    achievements: Achievement[],
     referrals: string[],
     referralLink: string,
     isStarted: boolean,

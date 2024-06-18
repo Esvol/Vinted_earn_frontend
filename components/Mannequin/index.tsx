@@ -5,6 +5,7 @@ import styles from './index.module.scss'
 import Image from 'next/image'
 import { coin, mannequin } from '../../img/images'
 import sparkGIF from '../../img/spark.gif'
+import crypto from 'crypto'
 
 import { LuPartyPopper } from "react-icons/lu";
 import { LuCircleDashed } from "react-icons/lu";
@@ -34,15 +35,17 @@ const Mannequin = () => {
   const [progress, setProgress] = useState(100);
 
   useEffect(() => {
-    const savedEndTime = localStorage.getItem('endTime');
+    if(user){
+      const savedEndTime = localStorage.getItem(`endTime_${crypto.createHash('sha256').update(user._id).digest('hex')}`);
 
-    if (savedEndTime !== null) {
-      setEndTime(parseInt(savedEndTime, 10));
-    } 
-    else if (user?.isStarted && time){
-      const newEndTime = Date.now() + time * 1000;
-      setEndTime(newEndTime);
-      localStorage.setItem('endTime', `${newEndTime}`);
+      if (savedEndTime !== null) {
+        setEndTime(parseInt(savedEndTime, 10));
+      } 
+      else if (user?.isStarted && time){
+        const newEndTime = Date.now() + time * 1000;
+        setEndTime(newEndTime);
+        localStorage.setItem(`endTime_${crypto.createHash('sha256').update(user._id).digest('hex')}`, `${newEndTime}`);
+      }
     }
   }, []); 
 
@@ -50,10 +53,7 @@ const Mannequin = () => {
     if (endTime !== null && time !== undefined && speed !== undefined) {
       const updateTimer = () => {
         const remainingTime = Math.max((endTime - Date.now()) / 1000, 0);
-        console.log('====================================');
-        console.log(remainingTime);
-        console.log('====================================');
-        const earnedCoins = ((time - Math.ceil(remainingTime)) * speed).toFixed(2)
+        const earnedCoins = ((time - Math.ceil(remainingTime)) * speed / 3600).toFixed(3)
         if(remainingTime === 0){
           clearInterval(intervalId)
         }
@@ -76,25 +76,28 @@ const Mannequin = () => {
   const minutes = Math.floor((timer % 3600) / 60);
 
   const handleClaim = async () => {
-    try {
-      if(user){
-        await claimCoins({coins}).unwrap()
+    if(user){
+      try {
+        await claimCoins({
+            coins, 
+            time: time ? time / 3600 : 0
+          }).unwrap()
           .then(() => {
           })
           .catch(error => {
               console.log(error);
               throw new Error(error);
           })
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-    }
-    
-    if(time !== undefined){
-      const newEndTime = Date.now() + time * 1000; // 60 секунд
-      setTimer(time);
-      setEndTime(newEndTime); 
-      localStorage.setItem('endTime', `${newEndTime}`); 
+      
+      if(time !== undefined){
+        const newEndTime = Date.now() + time * 1000; 
+        setTimer(time);
+        setEndTime(newEndTime); 
+        localStorage.setItem(`endTime_${crypto.createHash('sha256').update(user._id).digest('hex')}`, `${newEndTime}`); 
+      }
     }
   };
   

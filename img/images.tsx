@@ -47,6 +47,8 @@ const trousers5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5l
 const sneakers5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5lvl/sneakers5.gif'
 const timer5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5lvl/timer5.gif'
 
+import achievement1 from './new/achievement1.svg'
+
 export {
     empty_avatar, coin, mannequin, 
     storageCap, storageShirt, storageTrousers, storageSneakers, storageTimer, storageLine, arrow, 
@@ -56,4 +58,5 @@ export {
     cap3, tshirt3, trousers3, sneakers3, timer3, 
     cap4, tshirt4, trousers4, sneakers4, timer4,
     cap5, tshirt5, trousers5, sneakers5, timer5, 
+    achievement1,
 }

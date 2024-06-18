@@ -26,7 +26,7 @@ const Card = ({card, title, first = false, left = false}: Props) => {
             <div className={styles.card_info_details}>
                 <p>{title}</p>
             </div>
-            <p className={styles.card_info_earn}>{card.speed} coins / {card.time} hour</p>
+            <p className={styles.card_info_earn}>{card.speed} coins / 1 hour</p>
         </div>
 
         <div className={styles.card_level}>

@@ -1,5 +1,6 @@
 import { api } from "./api";
 import { User } from "../slices/auth";
+import { Reward } from "../../../cards";
 
 export const authApi = api.injectEndpoints({
     endpoints: (builder) => ({
@@ -17,9 +18,9 @@ export const authApi = api.injectEndpoints({
             }),
             invalidatesTags: ['User'],
         }),
-        claimCoins: builder.mutation<User, {coins: number}>({
+        claimCoins: builder.mutation<User, {coins: number, time: number}>({
             query: (data) => ({
-                url: '/claim',
+                url: '/claim-coins',
                 method: 'PATCH',
                 body: data
             }),
@@ -33,9 +34,17 @@ export const authApi = api.injectEndpoints({
             }),
             invalidatesTags: ['User'],
         }),
+        claimAchievement: builder.mutation<User, {type: string, level: number, reward: Reward, rewardType: string}>({
+            query: (data) => ({
+                url: '/claim-achievement',
+                method: 'PATCH',
+                body: data
+            }),
+            invalidatesTags: ['User'],
+        }),
     })
 });
 
-export const { useCurrentQuery, useIsStartedMutation, useClaimCoinsMutation, useUpdateItemMutation} = authApi
+export const { useCurrentQuery, useIsStartedMutation, useClaimCoinsMutation, useUpdateItemMutation, useClaimAchievementMutation} = authApi
 
-export const { endpoints: {current, isStarted, claimCoins, updateItem} } = authApi
+export const { endpoints: {current, isStarted, claimCoins, updateItem, claimAchievement} } = authApi
