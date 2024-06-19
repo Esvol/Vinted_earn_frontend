@@ -47,7 +47,18 @@ const trousers5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5l
 const sneakers5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5lvl/sneakers5.gif'
 const timer5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5lvl/timer5.gif'
 
-import achievement1 from './new/achievement1.svg'
+import fashion_achievement1 from './achievements/fashion/achievement1.gif'
+import fashion_achievement2 from './achievements/fashion/achievement2.svg'
+import fashion_achievement3 from './achievements/fashion/achievement3.gif'
+
+import friendship_achievement1 from './achievements/friendship/achievement1.svg'
+import friendship_achievement2 from './achievements/friendship/achievement2.svg'
+import friendship_achievement3 from './achievements/friendship/achievement3.svg'
+
+import timekeeper_achievement1 from './achievements/timekeeper/achievement1.svg'
+import timekeeper_achievement2 from './achievements/timekeeper/achievement2.gif'
+import timekeeper_achievement3 from './achievements/timekeeper/achievement3.svg'
+
 
 export {
     empty_avatar, coin, mannequin, 
@@ -58,5 +69,7 @@ export {
     cap3, tshirt3, trousers3, sneakers3, timer3, 
     cap4, tshirt4, trousers4, sneakers4, timer4,
     cap5, tshirt5, trousers5, sneakers5, timer5, 
-    achievement1,
+    fashion_achievement1, fashion_achievement2, fashion_achievement3,
+    friendship_achievement1, friendship_achievement2, friendship_achievement3,
+    timekeeper_achievement1, timekeeper_achievement2, timekeeper_achievement3,
 }

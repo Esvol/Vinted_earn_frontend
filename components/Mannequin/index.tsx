@@ -103,7 +103,7 @@ const Mannequin = () => {
   
   const handleIsStart = async () => {
     try {
-      if(user){
+      if(user){        
         await isStarted().unwrap()
           .then(() => {
               // toast.success(dict.data_saved);

@@ -26,7 +26,7 @@ export const authApi = api.injectEndpoints({
             }),
             invalidatesTags: ['User'],
         }),
-        updateItem: builder.mutation<User, {type: string, level: number, speed: number, image: string, price: number}>({
+        updateItem: builder.mutation<User, {type: string, title: string, level: number, speed: number, image: string, price: number}>({
             query: (data) => ({
                 url: '/update',
                 method: 'PATCH',

@@ -39,7 +39,7 @@ const Navigation = () => {
                 <Link href={'/'} onClick={() => setNavigation('')}>
                     <Image src={coin} alt='' width={36} height={36} className={styles.navigation_left_balance_icon}/>
                 </Link>
-                <p>{user && user.balance}</p>
+                <p>{user && user.balance.toFixed(2)}</p>
             </div>
         </div>
 

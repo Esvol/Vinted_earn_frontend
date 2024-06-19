@@ -76,7 +76,7 @@ const AchievementCard = ({achievements, keyType}: Props) => {
                         )
                         : (
                             <>
-                                <p>{progress > 100 ? 100 : progress}%</p>
+                                <p>{progress > 100 ? 100 : progress.toFixed(1)}%</p>
                                 <div className={styles.achievementCard_card_progress_bar}>
                                     <div className={styles.achievementCard_card_progress_bar_effect} style={{width: `${progress > 100 ? 100 : progress}%`}}></div>
                                 </div>

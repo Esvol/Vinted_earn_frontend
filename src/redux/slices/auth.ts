@@ -4,6 +4,7 @@ import { authApi } from '../services/auth'
 
 export type inventoryItem = {
     type: 'cap' | 'tshirt' | 'trousers' | 'sneakers' | 'time',
+    title: string,
     level: number,
     speed: number,
     image: string,
@@ -15,6 +16,7 @@ export type TotalData = {
     totalClaimedReferralCoins: number,
     totalSpendedTime: number,
     totalUpgradedLevels: number,
+    totalClaimedAchievements: number,
     totalSwaps: number,
 }
 

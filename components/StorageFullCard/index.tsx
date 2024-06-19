@@ -29,7 +29,7 @@ const StorageFullCard = ({type, card, prevSpeed, lastItem, balance}: Props) => {
     const handleUpgrade = async () => {
         try {
             if(balance && balance >= card.price) {
-                await updateItem({type, level: card.level, speed: card.speed, image: card.image, price: card.price})
+                await updateItem({type, title: card.title, level: card.level, speed: card.speed, image: card.image, price: card.price})
                     .unwrap()
                     .then((user) => {
                         console.log(user);
