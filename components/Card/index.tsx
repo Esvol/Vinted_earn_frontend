@@ -2,14 +2,13 @@
 
 import React from 'react'
 import styles from './index.module.scss'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 
 import { GiUpgrade } from "react-icons/gi";
-import { useSelector } from 'react-redux';
-import { Item, selectUser } from '@/redux/slices/auth';
+import { InventoryItem } from '@/redux/slices/auth';
 
 type Props = {
-    card: Item & {time: number | undefined},
+    card: InventoryItem & {time: number | undefined},
     title: string,
     first?: boolean,
     left?: boolean,
@@ -20,7 +19,7 @@ const Card = ({card, title, first = false, left = false}: Props) => {
   return (
     <div className={styles.card} style={{gridRow: left ? (first ? '1 / 9' : '12 / 20') : (first ? '2 / 10' : '13 / 21')}}>
         <div className={styles.card_icon}>
-            <Image src={card.image} alt='cap' width={156} height={156}/>
+            <Image src={card.image} alt={card.title} unoptimized width={156} height={156}/>
         </div>
         <div className={styles.card_info}>
             <div className={styles.card_info_details}>

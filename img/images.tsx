@@ -59,6 +59,8 @@ import timekeeper_achievement1 from './achievements/timekeeper/achievement1.svg'
 import timekeeper_achievement2 from './achievements/timekeeper/achievement2.gif'
 import timekeeper_achievement3 from './achievements/timekeeper/achievement3.svg'
 
+import clothes_discount from './swap/clothes.svg'
+import delivery_discount from './swap/delivery.svg'
 
 export {
     empty_avatar, coin, mannequin, 
@@ -72,4 +74,5 @@ export {
     fashion_achievement1, fashion_achievement2, fashion_achievement3,
     friendship_achievement1, friendship_achievement2, friendship_achievement3,
     timekeeper_achievement1, timekeeper_achievement2, timekeeper_achievement3,
+    clothes_discount, delivery_discount
 }
