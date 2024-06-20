@@ -1,0 +1,166 @@
+.friends{
+    padding: 20px 60px;
+    display: flex;
+    flex-direction: column;
+
+    &_container{
+        border-radius: 12px;
+        padding: 40px 0;
+        display: flex;
+        justify-content: space-around;
+        background-color: #E2E6FF;
+        border: 1px solid rgba(147, 169, 220, 0.443);
+        box-shadow: 0px 0px 5px 3px rgba(192, 205, 237, 0.43);
+
+        &_box{
+            padding: 0 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+
+            &_link{
+                display: flex;
+                flex-direction: column;
+                padding: 10px 14px;
+                border-radius: 6px;
+                gap: 8px;
+                text-wrap: nowrap;
+                width: max-content;
+
+                &_action{
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    p{
+                        padding: 10px 14px;
+                        border-radius: 6px;
+                        background-color: rgb(191, 211, 255);
+                    }
+
+                    div{
+                        cursor: pointer;
+                        height: 100%;
+                        width: 40px;
+                        border-radius: 6px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: rgb(191, 211, 255);
+                        color: rgba(0, 0, 0, 0.604);
+                        transition: var(--transition);
+
+                        &:hover{
+                            background-color: rgb(160, 189, 251);
+                            color: rgba(0, 0, 0, 0.766);
+                        }
+                    }
+                }
+
+                
+                
+            }
+        }
+
+        &_friends{
+            border-radius: 12px;
+            width: 400px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+
+            &_claim{
+                width: 80%;
+                padding: 12px;
+                border: 1px solid rgba(128, 128, 128, 0.359);
+                border-radius: 8px;
+                background-color: rgba(147, 181, 255, 0.743);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+
+                div{
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+
+                    p{
+                        color: rgba(0, 0, 0, 0.59);
+                        margin-top: 1px;
+                        line-height: 1.2;
+                        font-family: 'Black Ops One';
+                        font-size: 24px;
+                    }
+                }
+                
+                button{
+                    padding: 8px 24px;
+                    border-radius: 16px;
+                    background-color: rgb(58, 92, 159);
+                    transition: var(--transition);
+
+                    &:hover{
+                        background-color: rgb(40, 66, 116);
+                    }
+                }
+            }
+
+            &_info{
+                width: 80%;
+                text-align: center;
+                font-size: 13px;
+            }
+
+            &_amount{
+                width: 80%;
+                font-weight: 700;
+                font-size: 18px;
+            }
+            
+            &_box{
+                height: 100%;
+                overflow-y: auto;
+                width: 80%;
+                padding: 10px;
+                border: 1px solid rgba(149, 149, 149, 0.314);
+                border-radius: 8px;
+                background-color: #ffffffc3;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+
+                &_friend{
+                    display: flex;
+                    gap: 8px;
+                    width: 100%;
+                    padding: 6px 10px;
+
+                    &_avatar{
+                        border-radius: 50%;
+                    }
+
+                    div{
+                        position: relative;
+                        flex: 1;
+                        padding: 2px;
+                        color: rgb(var(--greyscale-level-2));
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.317);
+
+                        span{
+                            position: absolute;
+                            bottom: 2px;
+                            right: 0;
+                            font-family: 'Black Ops One';
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

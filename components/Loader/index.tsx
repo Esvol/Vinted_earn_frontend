@@ -12,7 +12,6 @@ const Loader = () => {
         width="100"
         color="rgb(0, 119, 130)"
         ariaLabel="puff-loading"
-        wrapperStyle={{}}
         />
     </div>
   );

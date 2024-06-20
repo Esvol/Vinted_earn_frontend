@@ -40,6 +40,7 @@ export type User = {
     googleId: string,
     email: string,
     displayName: string,
+    image: string,
     createdAt: string,
     updatedAt: string,
     balance: number,

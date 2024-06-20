@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './index.module.scss'
 
 import Header from '../Header'
@@ -13,10 +13,10 @@ type Props = {
 }
 
 const Layout = ({children}: Props) => {
-    const {data: user, isLoading} = useCurrentQuery();
+  const {data: user, isLoading} = useCurrentQuery();
 
   if(isLoading){
-    return <Loader/>
+    return <Loader />
   }
 
   return (
@@ -29,15 +29,15 @@ const Layout = ({children}: Props) => {
             {children}
           </>
         )
-         : (
+        : 
+        (
           <>
             <Header />
             <p className={styles.layout_warning}>
               SIGN IN WITH GOOGLE!
             </p>
           </>
-         )
-        
+        )
       }
     </div>
   )
