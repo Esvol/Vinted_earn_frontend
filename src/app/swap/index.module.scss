@@ -54,6 +54,19 @@
             align-items: center;
             gap: 12px;
 
+            &_empty{
+                width: 100%;
+                height: 90%;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                opacity: 0.9;
+            }
+
             &_discount{
                 width: 100%;
                 padding: 10px 16px;

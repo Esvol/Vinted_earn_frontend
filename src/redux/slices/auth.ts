@@ -2,8 +2,10 @@ import { createSlice } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 import { authApi } from '../services/auth'
 
+export type StorageNavigation = 'cap' | 'tshirt' | 'trousers' | 'sneakers' | 'time'
 
 export type InventoryItem = {
+    _id: string,
     type: 'cap' | 'tshirt' | 'trousers' | 'sneakers' | 'time',
     title: string,
     level: number,
@@ -31,6 +33,7 @@ export type TotalData = {
 }
 
 export type Achievement = {
+    _id: string,
     type: 'fashion' | 'friendship' | 'timekeeper',
     level: number,
 }
@@ -50,25 +53,34 @@ export type User = {
     totalData: TotalData,
     achievements: Achievement[],
     discounts: DiscountItem[],
-    referrals: string[],
+    referrals: User[],
     referralLink: string,
+    referralsIncome: number,
+    whoseReferral: User | null,
+    isReferral: boolean,
     isStarted: boolean,
 }
 
 type InitialStateProps = {
     user: User | null,
-    status: 'pending' | 'success' | 'rejected'
+    status: 'pending' | 'success' | 'rejected',
+    storageNavigation: StorageNavigation,
 }
 
 const initialState: InitialStateProps = {
     user: null,
     status: 'pending',
+    storageNavigation: 'cap'
 }
 
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
-    reducers: {},
+    reducers: {
+        setStorageNavigation: (state, action) => {
+            state.storageNavigation = action.payload;
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addMatcher(authApi.endpoints.current.matchFulfilled, (state, action) => {
@@ -85,6 +97,9 @@ export const authSlice = createSlice({
     },
 })
 
+
 export const selectUser = (state: RootState) => state.auth.user
+
+export const { setStorageNavigation } = authSlice.actions;
 
 export default authSlice.reducer

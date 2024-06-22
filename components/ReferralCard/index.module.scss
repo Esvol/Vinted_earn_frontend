@@ -1,0 +1,83 @@
+.referralCard{
+    position: relative;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 150px auto;
+    width: 500px;
+    height: 320px;
+    border-radius: 12px;
+    background-color: #E6E6FA;
+    color: #333333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 
+                0 2px 4px rgba(0, 0, 0, 0.06);
+    transition: var(--transition);
+
+    &_question{
+        font-family: 'Josefin Sans';
+        width: 80%;
+        text-align: center;
+    }
+
+    &_link{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+
+        &_icon{
+            height: 30px;
+            width: 30px;
+            padding: 4px;
+            border-radius: 8px;
+            background-color: #b4b4ff9b;
+        }
+
+        input{
+            width: 70%;
+            padding: 8px;
+            border-radius: 8px;
+            background-color: #b4b4ff9b;
+            color: rgb(var(--greyscale-level-1));
+
+            &::placeholder{
+                color: rgb(var(--greyscale-level-1));
+            }
+        }
+    }
+
+    &_skip, &_continue {
+        cursor: pointer;
+        position: absolute;
+        bottom: 0;
+        padding: 10px 14px;
+        transition: var(--transition);
+    }
+
+    &_skip{
+        left: 0;
+        color: #1919199a;
+        border-bottom-left-radius: 12px;
+        border-top-right-radius: 12px;
+
+        &:hover{
+            color: #191919e2;
+        }
+    }
+
+    &_continue{
+        right: 0;
+        background-color: #73b0f5;
+        color: #ffffff8d;
+        border-bottom-right-radius: 12px;
+        border-top-left-radius: 12px;
+
+        &:hover{
+            background-color: #4c9efb;
+            color: #ffffffdc;
+        }
+    }
+}

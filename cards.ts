@@ -8,7 +8,11 @@ import {
     timer1, timer2, timer4, timer3, timer5,
     fashion_achievement1, fashion_achievement2, fashion_achievement3,
     friendship_achievement1, friendship_achievement2, friendship_achievement3,
-    timekeeper_achievement1, timekeeper_achievement2, timekeeper_achievement3, 
+    timekeeper_achievement1, timekeeper_achievement2, timekeeper_achievement3,
+    coin,
+    box,
+    ticket,
+    airpods, 
 } from "./img/images";
 
 export type Сard = {
@@ -34,7 +38,7 @@ export const cards: Cards = {
         {
           level: 1,
           speed: 0.24,
-          price: 140,
+          price: 130,
           title: 'Basic Green',
           headline: 'Green cap, simple edition',
           text: 'This entry-level cap offers basic protection from the sun and a minimalist design. Perfect for everyday wear, it provides a comfortable fit and breathable material. Ideal for casual outings and lounging, but not intended for intense activities or long-term use.',
@@ -43,7 +47,7 @@ export const cards: Cards = {
         {
           level: 2,
           speed: 0.28,
-          price: 150,
+          price: 170,
           title: 'Royal Sapphire',
           headline: 'Sapphire cap, moderate edition',
           text: 'This mid-range cap features a rich sapphire color and improved material quality. It offers a comfortable fit and enhanced breathability, making it suitable for regular outdoor activities and casual wear. A reliable choice for both active and laid-back days.',
@@ -52,7 +56,7 @@ export const cards: Cards = {
         {
           level: 3,
           speed: 0.33,
-          price: 160,
+          price: 250,
           title: 'Radiant Ruby',
           headline: 'Ruby cap, vibrant edition',
           text: 'This high-quality cap showcases a striking ruby hue and premium materials. Designed for those who appreciate style and comfort, it offers a tailored fit and superior breathability. Perfect for making a statement, whether at the gym, on the trail, or out on the town.',
@@ -60,8 +64,8 @@ export const cards: Cards = {
         },
         {
           level: 4,
-          speed: 0.38,
-          price: 140,
+          speed: 0.45,
+          price: 400,
           title: 'Honeyed Amber',
           headline: 'Amber cap, nature-inspired edition',
           text: 'Inspired by the warmth of honey and the beauty of nature, this cap combines style with functionality. It provides exceptional comfort and a unique design, perfect for outdoor adventures or casual urban wear. A great choice for those who value both aesthetics and performance.',
@@ -69,8 +73,8 @@ export const cards: Cards = {
         },
         {
           level: 5,
-          speed: 0.45,
-          price: 140,
+          speed: 0.74,
+          price: 1000,
           title: 'Epic Galaxy',
           headline: 'Galaxy cap, elite edition',
           text: 'This elite cap features a stunning galaxy design and the highest quality materials. Engineered for those who demand the best, it delivers unparalleled comfort, durability, and style. Ideal for achieving your personal best, whether in athletic pursuits or making a bold fashion statement.',
@@ -81,7 +85,7 @@ export const cards: Cards = {
       {
           level: 1,
           speed: 0.24,
-          price: 140,
+          price: 180,
           title: 'Basic Green',
           headline: 'Green T-shirt, simple edition',
           text: 'This entry-level T-shirt offers basic comfort and a minimalist design. Perfect for everyday wear, it provides a relaxed fit and breathable fabric. Ideal for casual outings and lounging at home, but not intended for intense activities or long-term use.',
@@ -89,8 +93,8 @@ export const cards: Cards = {
         },
         {
           level: 2,
-          speed: 0.28,
-          price: 140,
+          speed: 0.36,
+          price: 240,
           title: 'Royal Sapphire',
           headline: 'Sapphire T-shirt, moderate edition',
           text: 'This mid-range T-shirt features a rich sapphire color and improved fabric quality. It offers a comfortable fit and enhanced breathability, making it suitable for regular workouts and casual wear. A reliable choice for both active and laid-back days.',
@@ -98,8 +102,8 @@ export const cards: Cards = {
         },
         {
           level: 3,
-          speed: 0.33,
-          price: 140,
+          speed: 0.5,
+          price: 350,
           title: 'Radiant Ruby',
           headline: 'Ruby T-shirt, vibrant edition',
           text: 'This high-quality T-shirt showcases a striking ruby hue and premium materials. Designed for those who appreciate style and comfort, it offers a tailored fit and superior softness. Perfect for making a statement, whether at the gym or out on the town.',
@@ -107,8 +111,8 @@ export const cards: Cards = {
         },
         {
           level: 4,
-          speed: 0.38,
-          price: 140,
+          speed: 0.71,
+          price: 600,
           title: 'Honeyed Amber',
           headline: 'Amber T-shirt, nature-inspired edition',
           text: 'Inspired by the warmth of honey and the beauty of nature, this T-shirt combines style with functionality. It provides exceptional comfort and a unique design, perfect for outdoor adventures or casual urban wear. A great choice for those who value both aesthetics and performance.',
@@ -116,8 +120,8 @@ export const cards: Cards = {
         },
         {
           level: 5,
-          speed: 0.45,
-          price: 140,
+          speed: 0.96,
+          price: 1200,
           title: 'Epic Galaxy',
           headline: 'Galaxy T-shirt, elite edition',
           text: 'This elite T-shirt features a stunning galaxy design and the highest quality fabric. Engineered for those who demand the best, it delivers unparalleled comfort, durability, and style. Ideal for achieving your personal best, whether in athletic pursuits or making a bold fashion statement.',
@@ -128,7 +132,7 @@ export const cards: Cards = {
       {
           level: 1,
           speed: 0.24,
-          price: 140,
+          price: 130,
           title: 'Basic Green',
           headline: 'Green trousers, casual edition',
           text: 'These entry-level trousers offer essential comfort and simplicity. Perfect for everyday wear, they feature a relaxed fit and breathable fabric. Ideal for casual outings and relaxed home settings, but not designed for intense activities or formal occasions.',
@@ -136,8 +140,8 @@ export const cards: Cards = {
         },
         {
           level: 2,
-          speed: 0.28,
-          price: 140,
+          speed: 0.34,
+          price: 180,
           title: 'Royal Sapphire',
           headline: 'Sapphire trousers, comfort edition',
           text: 'These mid-range trousers come in a regal sapphire hue, offering improved quality and comfort. With a modern fit and enhanced durability, they are suitable for regular use, from casual Fridays at the office to weekend adventures. A dependable choice for everyday versatility.',
@@ -145,8 +149,8 @@ export const cards: Cards = {
         },
         {
           level: 3,
-          speed: 0.33,
-          price: 140,
+          speed: 0.48,
+          price: 260,
           title: 'Radiant Ruby',
           headline: 'Ruby trousers, stylish edition',
           text: 'These high-quality trousers shine in a radiant ruby color, blending style with functionality. Designed for those who value both aesthetics and performance, they provide a tailored fit and superior fabric. Perfect for making a bold fashion statement, whether at a social event or a business meeting.',
@@ -154,8 +158,8 @@ export const cards: Cards = {
         },
         {
           level: 4,
-          speed: 0.38,
-          price: 140,
+          speed: 0.64,
+          price: 370,
           title: 'Honeyed Amber',
           headline: 'Amber trousers, nature-inspired edition',
           text: 'Inspired by the warmth of honey and the charm of nature, these trousers offer a unique blend of style and comfort. Featuring a relaxed yet refined fit, they are ideal for outdoor excursions or urban explorations. Perfect for those who appreciate natural beauty and high-quality craftsmanship.',
@@ -163,8 +167,8 @@ export const cards: Cards = {
         },
         {
           level: 5,
-          speed: 0.45,
-          price: 140,
+          speed: 0.82,
+          price: 600,
           title: 'Epic Galaxy',
           headline: 'Galaxy trousers, elite edition',
           text: 'These elite trousers boast a mesmerizing galaxy design, merging cutting-edge fashion with peak performance. Engineered for those who demand the best, they offer unmatched comfort, durability, and style. Ideal for achieving your personal best, whether in professional settings or making a stellar impression.',
@@ -174,8 +178,8 @@ export const cards: Cards = {
   sneakers: [
       {
           level: 1,
-          speed: 0.24,
-          price: 140,
+          speed: 0.27,
+          price: 150,
           title: 'Basic Green',
           headline: 'Green sneakers, slow edition',
           text: 'These entry-level running shoes have minimal features and quality, providing basic comfort and support. Ideal for everyday wear, but not intended for intense sports or long-term use.',
@@ -183,8 +187,8 @@ export const cards: Cards = {
         },
         {
           level: 2,
-          speed: 0.28,
-          price: 140,
+          speed: 0.35,
+          price: 230,
           title: 'Royal Sapphire',
           headline: 'Sapphire sneakers, moderate edition',
           text: 'These mid-range running shoes offer enhanced features and quality, providing improved comfort and support. Suitable for regular workouts and sports activities, they offer a reliable performance for both casual and more dedicated athletes.',
@@ -192,8 +196,8 @@ export const cards: Cards = {
         },
         {
           level: 3,
-          speed: 0.33,
-          price: 140,
+          speed: 0.48,
+          price: 300,
           title: 'Radiant Ruby',
           headline: 'Ruby sneakers, vibrant edition',
           text: 'These high-quality running shoes feature a striking ruby color and superior craftsmanship. Designed for serious athletes, they offer exceptional support, comfort, and durability. Ideal for intense training sessions and long-distance running, ensuring peak performance.',
@@ -201,8 +205,8 @@ export const cards: Cards = {
         },
         {
           level: 4,
-          speed: 0.38,
-          price: 140,
+          speed: 0.67,
+          price: 500,
           title: 'Honeyed Amber',
           headline: 'Amber sneakers, nature-inspired edition',
           text: 'Inspired by the beauty of honey and bees, these running shoes blend style with functionality. They provide excellent cushioning and stability, perfect for both outdoor adventures and urban exploration. A great choice for those who appreciate nature and require top-tier athletic performance.',
@@ -210,8 +214,8 @@ export const cards: Cards = {
         },
         {
           level: 5,
-          speed: 0.45,
-          price: 140,
+          speed: 0.92,
+          price: 940,
           title: 'Epic Galaxy',
           headline: 'Galaxy sneakers, elite edition',
           text: 'These elite running shoes boast a cosmic design and the highest level of performance features. Engineered for those who demand the best, they deliver unmatched comfort, support, and durability. Ideal for achieving your personal best and conquering any challenge, both on and off the track.',
@@ -222,7 +226,7 @@ export const cards: Cards = {
     {
       level: 1,
       speed: 3,
-      price: 140,
+      price: 160,
       title: 'Basic Green',
       headline: 'Green watch, essential edition',
       text: 'This entry-level watch offers basic timekeeping and a simple design. Perfect for everyday wear, it runs efficiently for up to 3 hours. During this time, it keeps the outfit securely on the mannequin. Ideal for providing essential time management and basic functionality.',
@@ -231,7 +235,7 @@ export const cards: Cards = {
     {
       level: 2,
       speed: 4, 
-      price: 140,
+      price: 280,
       title: 'Royal Sapphire',
       headline: 'Sapphire watch, extended edition',
       text: 'This mid-range watch features a stunning sapphire color and an extended battery life. With a sleek design and improved durability, it runs for up to 4 hours. Suitable for regular use, from daily commutes to evening events, offering reliable timekeeping with added functionality.',
@@ -240,7 +244,7 @@ export const cards: Cards = {
     {
       level: 3,
       speed: 6,
-      price: 140,
+      price: 400,
       title: 'Radiant Ruby',
       headline: 'Ruby watch, advanced edition',
       text: 'This high-quality watch shines with a radiant ruby hue and superior craftsmanship. Designed for those who appreciate both style and functionality, it runs for up to 6 hours. While active, it maintains the outfit on the mannequin flawlessly. Perfect for busy days and special occasions, providing dependable time management and an impressive display.',
@@ -249,7 +253,7 @@ export const cards: Cards = {
     {
       level: 4,
       speed: 12,
-      price: 140,
+      price: 650,
       title: 'Honeyed Amber',
       headline: 'Amber watch, nature-inspired edition',
       text: 'Inspired by the warmth of honey and the beauty of nature, this watch combines style with extended functionality. It runs for up to 12 hours, ensuring the outfit stays secure on the mannequin during this period. Ideal for outdoor adventures or urban explorations, offering long-lasting performance, natural charm, and practical utility.',
@@ -258,7 +262,7 @@ export const cards: Cards = {
     {
       level: 5,
       speed: 24,
-      price: 140,
+      price: 1000,
       title: 'Epic Galaxy',
       headline: 'Galaxy watch, elite edition',
       text: 'This elite watch boasts a mesmerizing galaxy design and the highest level of performance. Engineered for those who demand the best, it runs for up to 24 hours, keeping the outfit intact on the mannequin throughout the day. Perfect for achieving your personal best, whether in professional settings or making a stellar impression, this watch ensures you are always on time and well-prepared.',
@@ -271,6 +275,7 @@ export type TotalDataTypes = 'totalClaimedCoins' | 'totalReferrals' | 'totalClai
 
 export type Reward = number | {
   type: 'accessory',
+  title: string,
   level: number,
   speed: number,
   image: string,
@@ -286,6 +291,7 @@ export type Achievement = {
   reward: Reward,
   rewardText: string,
   rewardType: string,
+  rewardImage: string | StaticImageData,
 }
 
 interface Achievements {
@@ -304,6 +310,7 @@ export const achievements: Achievements = {
       reward: 10,
       rewardText: '10 coins',
       rewardType: 'balance',
+      rewardImage: coin,
     },
     {
       level: 2,
@@ -315,6 +322,7 @@ export const achievements: Achievements = {
       reward: 10,
       rewardText: '10 coins',
       rewardType: 'balance',
+      rewardImage: coin,
     },
     {
       level: 3,
@@ -326,6 +334,7 @@ export const achievements: Achievements = {
       reward: 1,
       rewardText: '1 ticket',
       rewardType: 'tickets',
+      rewardImage: ticket,
     },
   ],
   friendship: [
@@ -338,12 +347,14 @@ export const achievements: Achievements = {
       goal: 3,
       reward: {
         type: 'accessory',
+        title: 'Airpods',
         level: 1,
         speed: 0.02,
-        image: ''
+        image: airpods
       },
       rewardText: '1 accessory',
       rewardType: 'accessories',
+      rewardImage: box,
     },
     {
       level: 2,
@@ -355,6 +366,7 @@ export const achievements: Achievements = {
       reward: 10,
       rewardText: '10 coins',
       rewardType: 'balance',
+      rewardImage: coin,
     },
     {
       level: 3,
@@ -366,6 +378,7 @@ export const achievements: Achievements = {
       reward: 1,
       rewardText: '1 ticket',
       rewardType: 'tickets',
+      rewardImage: ticket,
     },
   ],
   timekeeper: [
@@ -379,6 +392,7 @@ export const achievements: Achievements = {
       reward: 10,
       rewardText: '10 coins',
       rewardType: 'balance',
+      rewardImage: coin,
     },
     {
       level: 2,
@@ -390,6 +404,7 @@ export const achievements: Achievements = {
       reward: 10,
       rewardText: '10 coins',
       rewardType: 'balance',
+      rewardImage: coin,
     },
     {
       level: 3,
@@ -401,6 +416,7 @@ export const achievements: Achievements = {
       reward: 1,
       rewardText: '1 ticket',
       rewardType: 'tickets',
+      rewardImage: ticket,
     },
   ],
 }

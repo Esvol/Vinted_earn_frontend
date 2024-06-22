@@ -6,22 +6,22 @@ import Card from "../../components/Card";
 import Mannequin from "../../components/Mannequin";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/redux/slices/auth";
-import Loader from "../../components/Loader";
+import ReferralCard from "../../components/ReferralCard";
+import Image from "next/image";
 
-export default function Home() {
-
+const Home = () => {
   const user = useSelector(selectUser)
   const time = user?.inventory[4].speed
 
   if(!user){
-    return <Loader />
+    return <p></p>
   }
 
   return (
     <section className={styles.home}>
       <div className={styles.home_cards}>
-        <Card title='Green cap' card={{...user.inventory[0], time}} first={true} left={true}/>
-        <Card title='Green trousers' card={{...user.inventory[1], time}} left={true}/>
+        <Card title='cap' card={{...user.inventory[0], time}} first={true} left={true}/>
+        <Card title='trousers'  card={{...user.inventory[1], time}} left={true}/>
       </div>
 
       <div className={styles.home_mannequin}>
@@ -29,9 +29,30 @@ export default function Home() {
       </div>
 
       <div className={styles.home_cards}>
-        <Card title='Green t-shirt' card={{...user?.inventory[2], time}} first={true} />
-        <Card title='Green sneakers' card={{...user?.inventory[3], time}} />
+        <Card title='t-shirt' card={{...user?.inventory[2], time}} first={true} />
+        {
+          user.accessories.length !== 0 && (
+            <div className={styles.home_cards_accessories}>
+              <Image src={user.accessories[0].image} alt="coin" width={10} height={10} className={styles.home_cards_accessories_icon}/>
+              <div className={styles.home_cards_accessories_info}>
+                <p>{user.accessories[0].title}</p>
+                <span>{user.accessories[0].speed} coin / 1 hour</span>
+              </div>
+            </div>
+          )
+        }
+        <Card title='sneakers' card={{...user?.inventory[3], time}} />
       </div>
+
+      {
+        !user.isReferral && (
+          <div className={styles.home_referral}>
+            <ReferralCard/>
+          </div>
+        )
+      }
     </section>
   );
 }
+
+export default Home;

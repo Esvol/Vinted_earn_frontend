@@ -3,7 +3,7 @@
 import React from 'react'
 import styles from './index.module.scss'
 import SwapCard from '../../../components/SwapCard';
-import { clothes_discount, delivery_discount } from '../../../img/images';
+import { clothes_discount, delivery_discount, oops } from '../../../img/images';
 import { useSelector } from 'react-redux';
 import { selectUser } from '@/redux/slices/auth';
 import Image from 'next/image';
@@ -83,7 +83,7 @@ const Swap = () => {
             </div>
 
             {
-                user && user.discounts.length !== 0 && (
+                user && (
                     <div className={styles.swap_container_results}>
                         <h2>Your discounts</h2>
                         <div className={styles.swap_container_results_box}>
@@ -99,6 +99,14 @@ const Swap = () => {
                                         </button>
                                     </div>
                                 ))
+                            }
+                            {
+                                user.discounts.length === 0 && (
+                                    <div className={styles.swap_container_results_box_empty}>
+                                        <Image src={oops} alt='oops' width={80} height={80} />
+                                        <p>You don`t have any discount yet. Swap some coins for the discount!</p>
+                                    </div>
+                                )
                             }
                         </div>
                     </div>

@@ -1,7 +1,9 @@
 const empty_avatar = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/empty_avatar.png'
 
-const coin = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/coin.svg'
 const mannequin = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/mannequin.svg'
+const coin = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/coin.svg'
+const ticket = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/ticket.svg'
+const referral = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/referral.svg'
 
 const storageCap = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/storageCap.svg'
 const storageShirt = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/storageShirt.svg'
@@ -47,23 +49,27 @@ const trousers5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5l
 const sneakers5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5lvl/sneakers5.gif'
 const timer5 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/5lvl/timer5.gif'
 
-import fashion_achievement1 from './achievements/fashion/achievement1.gif'
-import fashion_achievement2 from './achievements/fashion/achievement2.svg'
-import fashion_achievement3 from './achievements/fashion/achievement3.gif'
+const fashion_achievement1 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/achievements/fashion/achievement1.gif'
+const fashion_achievement2 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/achievements/fashion/achievement2.svg'
+const fashion_achievement3 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/achievements/fashion/achievement3.gif'
 
-import friendship_achievement1 from './achievements/friendship/achievement1.svg'
-import friendship_achievement2 from './achievements/friendship/achievement2.svg'
-import friendship_achievement3 from './achievements/friendship/achievement3.svg'
+const friendship_achievement1 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/achievements/friendship/achievement1.svg'
+const friendship_achievement2 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/achievements/friendship/achievement2.svg'
+const friendship_achievement3 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/achievements/friendship/achievement3.svg'
 
-import timekeeper_achievement1 from './achievements/timekeeper/achievement1.svg'
-import timekeeper_achievement2 from './achievements/timekeeper/achievement2.gif'
-import timekeeper_achievement3 from './achievements/timekeeper/achievement3.svg'
+const timekeeper_achievement1 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/achievements/timekeeper/achievement1.svg'
+const timekeeper_achievement2 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/achievements/timekeeper/achievement2.gif'
+const timekeeper_achievement3 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/achievements/timekeeper/achievement3.svg'
 
-import clothes_discount from './swap/clothes.svg'
-import delivery_discount from './swap/delivery.svg'
+const clothes_discount = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/swap/clothes.svg'
+const delivery_discount = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/swap/delivery.svg'
+const oops = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/swap/oops.svg'
 
-import invitation from './friends/invitation.svg'
-import family from './friends/family.svg'
+const invitation = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/friends/invitation.svg'
+const family = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/friends/family.svg'
+
+const airpods = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/accessories/airpods.svg'
+const box = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/accessories/box.svg'
 
 export {
     empty_avatar, coin, mannequin, 
@@ -77,6 +83,8 @@ export {
     fashion_achievement1, fashion_achievement2, fashion_achievement3,
     friendship_achievement1, friendship_achievement2, friendship_achievement3,
     timekeeper_achievement1, timekeeper_achievement2, timekeeper_achievement3,
-    clothes_discount, delivery_discount,
-    invitation, family
+    clothes_discount, delivery_discount, oops,
+    invitation, family, 
+    referral, 
+    airpods, box, ticket
 }

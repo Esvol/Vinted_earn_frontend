@@ -5,9 +5,10 @@ import styles from './index.module.scss'
 import Image from 'next/image'
 import { useSelector } from 'react-redux'
 import { selectUser } from '@/redux/slices/auth'
-import { Achievement, achievements } from '../../cards';
-import { coin } from '../../img/images'
+import { Achievement } from '../../cards';
+import { ticket } from '../../img/images'
 import { useClaimAchievementMutation } from '@/redux/services/auth'
+import toast from 'react-hot-toast'
 
 type Props = {
     achievements: Achievement[],
@@ -43,6 +44,7 @@ const AchievementCard = ({achievements, keyType}: Props) => {
                     rewardType: currentAchievement.rewardType
                 }).unwrap()
                   .then(() => {
+                    toast.success(`You have successfully claimed ${currentAchievement.rewardText}!`, {style: {backgroundColor: 'rgba(40, 134, 90, 0.7)', color: 'rgba(255, 255, 255)'}})
                   })
                   .catch(error => {
                       console.log(error);
@@ -110,13 +112,20 @@ const AchievementCard = ({achievements, keyType}: Props) => {
         }
 
         {
-            !isLastAchievement && (
+            !isLastAchievement ? (
                 <div className={styles.achievementCard_reward}>
                     <div className={styles.achievementCard_reward_box}>
                         <p>{currentAchievement.rewardText}</p>
-                        <Image src={coin} alt='coin' width={0} height={0} className={styles.achievementCard_reward_box_icon}/>
+                        <Image src={currentAchievement.rewardImage} alt='coin' width={0} height={0} className={styles.achievementCard_reward_box_icon}/>
                     </div>
                     <div className={styles.achievementCard_reward_line}></div>
+                </div>
+            ) : (
+                <div className={styles.achievementCard_ticket}> 
+                    <div className={styles.achievementCard_ticket_box}>
+                        <p>+1</p>
+                        <Image src={ticket} alt='coin' width={0} height={0} className={styles.achievementCard_ticket_box_icon}/>
+                    </div>
                 </div>
             )
         }

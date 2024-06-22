@@ -21,13 +21,17 @@ const Mannequin = () => {
   const [claimCoins] = useClaimCoinsMutation();
   const [isStarted] = useIsStartedMutation();
 
-  const time = user ? user?.inventory[4].speed * 3600 : undefined;
-  const speed = user?.inventory.reduce((acc, item) => {
+  const time = user ? user.inventory[4].speed * 3600 : undefined;
+  const speed = user ? user.inventory.reduce((acc, item) => {
     if (item.type === 'time'){
       return acc
     }
     return acc + item.speed
-  }, 0)
+  }, 0) : undefined
+
+  const accessoriesSpeed = user ? user.accessories.reduce((acc, item) => {
+    return acc + item.speed
+  }, 0) : 0
 
   const [coins, setCoins] = useState(0);
   const [timer, setTimer] = useState(0);
@@ -53,7 +57,7 @@ const Mannequin = () => {
     if (endTime !== null && time !== undefined && speed !== undefined) {
       const updateTimer = () => {
         const remainingTime = Math.max((endTime - Date.now()) / 1000, 0);
-        const earnedCoins = ((time - Math.ceil(remainingTime)) * speed / 3600).toFixed(3)
+        const earnedCoins = ((time - Math.ceil(remainingTime)) * (speed + accessoriesSpeed) / 3600).toFixed(3)
         if(remainingTime === 0){
           clearInterval(intervalId)
         }
@@ -106,11 +110,11 @@ const Mannequin = () => {
       if(user){        
         await isStarted().unwrap()
           .then(() => {
-              // toast.success(dict.data_saved);
+              // toast.success("");
               handleClaim()
           })
           .catch(error => {
-              // toast.error(dict.data_notSaved);
+              // toast.error('');
               console.log(error);
               throw new Error(error);
           })
@@ -124,7 +128,6 @@ const Mannequin = () => {
     <div className={styles.mannequin}>
       <div className={styles.mannequin_title}>
         <h1>{user?.displayName}`s mannequin</h1>
-        {/* <h1>Remaining Time: {timer} seconds</h1> */}
       </div>
 
       <div className={styles.mannequin_icon}> 

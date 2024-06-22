@@ -58,6 +58,22 @@ export const authApi = api.injectEndpoints({
             }),
             invalidatesTags: ['User'],
         }),
+        becomeReferral: builder.mutation<User | {message: string}, {link: string}>({
+            query: (data) => ({
+                url: '/become-referral', 
+                method: 'PATCH',
+                body: data
+            }),
+            invalidatesTags: ['User'],
+        }),
+        claimReferralCoins: builder.mutation<User, {referralCoins: number}>({
+            query: (data) => ({
+                url: '/claim-referral-coins', 
+                method: 'PATCH',
+                body: data
+            }),
+            invalidatesTags: ['User'],
+        }),
     })
 });
 
@@ -68,7 +84,9 @@ export const {
     useUpdateItemMutation,
     useClaimAchievementMutation, 
     useSwapForDiscountMutation,
-    useUseDiscountMutation
+    useUseDiscountMutation,
+    useBecomeReferralMutation,
+    useClaimReferralCoinsMutation,
 } = authApi
 
 export const { 
@@ -79,6 +97,8 @@ export const {
         updateItem, 
         claimAchievement,
         swapForDiscount,
-        useDiscount
+        useDiscount,
+        becomeReferral,
+        claimReferralCoins
     } 
 } = authApi

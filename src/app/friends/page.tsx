@@ -8,8 +8,10 @@ import { useSelector } from 'react-redux'
 import { selectUser } from '@/redux/slices/auth'
 import { FaRegCopy } from "react-icons/fa6";
 import toast from 'react-hot-toast'
+import { useClaimReferralCoinsMutation } from '@/redux/services/auth'
 
 const Friends = () => {
+    const [claimReferralCoins] = useClaimReferralCoinsMutation()
     const user = useSelector(selectUser);
 
     const handleCopy = () => {
@@ -20,6 +22,31 @@ const Friends = () => {
             .catch((err) => {
                 toast.error('Problem with coping the link!', {style: {backgroundColor: 'rgba(208, 69, 85, 0.7)', color: 'rgba(255, 255, 255)'}})
             });
+    }
+
+    const handleClaimReferralCoins = async () => {
+        try {
+            if(user){
+                await claimReferralCoins({referralCoins: user.referralsIncome})
+                    .unwrap()
+                    .then(() => {
+                        toast.success("Your referral link was accepted!", {style: {backgroundColor: 'rgba(40, 134, 90, 0.7)', color: 'rgba(255, 255, 255)'}})
+                    })
+                    .catch(error => {
+                        toast.error(`${error.data.message}`, {style: {backgroundColor: 'rgba(208, 69, 85, 0.7)', color: 'rgba(255, 255, 255)'}})
+                        throw new Error(error);
+                    })
+            }
+            else{
+                toast.error("User is not found.", {style: {backgroundColor: 'rgba(208, 69, 85, 0.7)', color: 'rgba(255, 255, 255)'}})
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    if(!user){
+        return <p></p>
     }
 
   return (
@@ -44,23 +71,31 @@ const Friends = () => {
                 <div className={styles.friends_container_friends_claim}>
                     <div>
                         <Image src={coin} alt='coin' width={20} height={20} />
-                        <p>130</p>
+                        <p>{user.referralsIncome}</p>
                     </div>
-                    <button>Claim</button>
+                    <button disabled={user.referralsIncome === 0} onClick={handleClaimReferralCoins}>
+                        Claim
+                    </button>
                 </div>
                 <span className={styles.friends_container_friends_info}>
                     Every time your friend claim Vinted Coins you get <b>2.5%</b> cashback.
                 </span>
-                <p className={styles.friends_container_friends_amount}>1 frens</p>
+                <p className={styles.friends_container_friends_amount}>{user.referrals.length} frens</p>
                 <div className={styles.friends_container_friends_box}>
-                    <div className={styles.friends_container_friends_box_friend}>
-                        <Image src={user ? user?.image : ''} alt='friend' width={40} height={40} className={styles.friends_container_friends_box_friend_avatar}/>
-                        <div>
-                            <p>{user?.displayName}</p>
-                            <span>25400 VC</span>
-                        </div>
-                    </div>
-                    
+                    {
+                        user.referrals.length !== 0 ? user.referrals.map((referral, index) => (
+                            <div className={styles.friends_container_friends_box_friend}>
+                                <Image src={referral.image} alt='friend' width={40} height={40} className={styles.friends_container_friends_box_friend_avatar}/>
+                                <div>
+                                    <p>{referral.displayName}</p>
+                                    <span>{referral.totalData.totalClaimedCoins} VC</span>
+                                </div>
+                            </div>
+                        ))
+                        : (
+                            <p className={styles.no_friends}>You don`t have any friends here yet :D</p>
+                        )
+                    }
                 </div>
             </div>
         </div>
