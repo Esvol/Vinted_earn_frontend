@@ -88,7 +88,7 @@ const Friends = () => {
                                 <Image src={referral.image} alt='friend' width={40} height={40} className={styles.friends_container_friends_box_friend_avatar}/>
                                 <div>
                                     <p>{referral.displayName}</p>
-                                    <span>{referral.totalData.totalClaimedCoins} VC</span>
+                                    <span>{referral.totalData.totalClaimedCoins.toFixed(2)} VC</span>
                                 </div>
                             </div>
                         ))

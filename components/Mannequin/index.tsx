@@ -127,7 +127,7 @@ const Mannequin = () => {
   return (
     <div className={styles.mannequin}>
       <div className={styles.mannequin_title}>
-        <h1>{user?.displayName}`s mannequin</h1>
+        <h1>{user?.displayName}'s mannequin</h1>
       </div>
 
       <div className={styles.mannequin_icon}> 

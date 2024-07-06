@@ -10,7 +10,7 @@ const storageShirt = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img
 const storageTrousers = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/storageTrousers.svg'
 const storageSneakers = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/storageSneakers.svg'
 const storageLine = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/storageLine.svg'
-const storageTimer = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/timer.svg'
+const storageTimer = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/storageTimer.svg'
 const arrow = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/storage/arrow.svg'
 
 const cap0 = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/0lvl/cap0.svg'
@@ -71,6 +71,8 @@ const family = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/frien
 const airpods = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/accessories/airpods.svg'
 const box = 'https://vinted-earn-images.s3.eu-north-1.amazonaws.com/img/accessories/box.svg'
 
+import google from './google.webp'
+
 export {
     empty_avatar, coin, mannequin, 
     storageCap, storageShirt, storageTrousers, storageSneakers, storageTimer, storageLine, arrow, 
@@ -86,5 +88,6 @@ export {
     clothes_discount, delivery_discount, oops,
     invitation, family, 
     referral, 
-    airpods, box, ticket
+    airpods, box, ticket,
+    google
 }

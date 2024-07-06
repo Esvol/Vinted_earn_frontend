@@ -7,6 +7,8 @@ import Header from '../Header'
 import { useCurrentQuery } from '@/redux/services/auth'
 import Loader from '../Loader'
 import Navigation from '../Navigation'
+import Image from 'next/image'
+import { google } from '../../img/images'
 
 type Props = {
     children: React.ReactNode;
@@ -34,6 +36,7 @@ const Layout = ({children}: Props) => {
           <>
             <Header />
             <p className={styles.layout_warning}>
+              <Image src={google} alt='google' width={100} height={100}/>
               SIGN IN WITH GOOGLE!
             </p>
           </>
