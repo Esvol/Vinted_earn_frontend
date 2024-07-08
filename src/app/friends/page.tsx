@@ -4,7 +4,7 @@ import React from 'react'
 import styles from './index.module.scss'
 import Image from 'next/image'
 import { coin, family, invitation } from '../../../img/images'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../../src/redux/hooks'
 import { selectUser } from '@/redux/slices/auth'
 import { FaRegCopy } from "react-icons/fa6";
 import toast from 'react-hot-toast'
@@ -12,7 +12,7 @@ import { useClaimReferralCoinsMutation } from '@/redux/services/auth'
 
 const Friends = () => {
     const [claimReferralCoins] = useClaimReferralCoinsMutation()
-    const user = useSelector(selectUser);
+    const user = useAppSelector(selectUser);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(user ? user?.referralLink : '')

@@ -5,7 +5,7 @@ import styles from './index.module.scss'
 import Image from 'next/image'
 import { coin } from '../../img/images'
 import Link from 'next/link'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../src/redux/hooks'
 import { selectUser } from '@/redux/slices/auth'
 
 const nav = [
@@ -28,7 +28,7 @@ const nav = [
 ]
 
 const Navigation = () => {
-    const user = useSelector(selectUser);
+    const user = useAppSelector(selectUser);
     const path = window.location.pathname.replace('/', '')
     const [navigation, setNavigation] = useState(path ? path : '')
     

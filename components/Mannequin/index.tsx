@@ -13,11 +13,11 @@ import { MdOutlineTimer } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
 
 import { selectUser } from '@/redux/slices/auth'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../src/redux/hooks'
 import { useClaimCoinsMutation, useIsStartedMutation } from '@/redux/services/auth'
 
 const Mannequin = () => {
-  const user = useSelector(selectUser)
+  const user = useAppSelector(selectUser)
   const [claimCoins] = useClaimCoinsMutation();
   const [isStarted] = useIsStartedMutation();
 

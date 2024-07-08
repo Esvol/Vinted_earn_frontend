@@ -4,11 +4,10 @@ import React from 'react'
 import styles from './index.module.scss'
 import SwapCard from '../../../components/SwapCard';
 import { clothes_discount, delivery_discount, oops } from '../../../img/images';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../../src/redux/hooks';
 import { selectUser } from '@/redux/slices/auth';
 import Image from 'next/image';
 import { useUseDiscountMutation } from '@/redux/services/auth';
-import toast from 'react-hot-toast';
 
 type CardsKeys = 'clothes' | 'delivery'
 
@@ -44,7 +43,7 @@ const cards = {
 }
 
 const Swap = () => {
-    const user = useSelector(selectUser)
+    const user = useAppSelector(selectUser)
     const [useDiscount] = useUseDiscountMutation();
 
     const handleUseDiscount = async (_id: string) => {
@@ -67,12 +66,13 @@ const Swap = () => {
     }
 
   return (
-    <section className={styles.swap}>
+    <section className={styles.swap} role='region'>
         <div className={styles.swap_container}>
             <div className={styles.swap_container_cards}>
                 {
                     Object.keys(cards).map((card, index) => (
                         <SwapCard 
+                            key={card}
                             user={user}
                             cards={cards[`${card as CardsKeys}`]} 
                             type={card} 

@@ -9,7 +9,7 @@ import { storageCap, storageLine, storageShirt, storageSneakers, storageTimer, s
 import StorageSmallCard from '../../../components/StorageSmallCard'
 import StorageFullCard from '../../../components/StorageFullCard'
 import { cards } from '../../../cards'
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../../src/redux/hooks'
 import { selectUser, setStorageNavigation, StorageNavigation } from '@/redux/slices/auth'
 import { RootState } from '@/redux/store'
 
@@ -42,9 +42,9 @@ const nav = [
 ]
 
 const Storage = () => {
-  const user = useSelector(selectUser)
-  const dispatch = useDispatch()
-  const navigation = useSelector((state: RootState) => state.auth.storageNavigation)
+  const user = useAppSelector(selectUser)
+  const dispatch = useAppDispatch()
+  const navigation = useAppSelector((state: RootState) => state.auth.storageNavigation)
   
   const userCard = user?.inventory.filter(item => item.type === navigation)[0]
   const card = userCard && userCard.level !== 5 ? cards[`${navigation}`][userCard.level] : cards[`${navigation}`][cards[`${navigation}`].length - 1] 

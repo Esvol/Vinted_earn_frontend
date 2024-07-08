@@ -8,7 +8,7 @@ import { GiUpgrade } from "react-icons/gi";
 import { InventoryItem, setStorageNavigation } from '@/redux/slices/auth';
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { useRouter } from 'next/navigation';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../src/redux/hooks';
 
 type Props = {
     card: InventoryItem & {time: number | undefined},
@@ -19,7 +19,7 @@ type Props = {
 
 const Card = ({card, title, first = false, left = false}: Props) => {
     const router = useRouter();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const handleUpdateNavigation = () => {
         dispatch(setStorageNavigation(card.type))

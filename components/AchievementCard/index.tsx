@@ -3,7 +3,7 @@
 import React from 'react'
 import styles from './index.module.scss'
 import Image from 'next/image'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../src/redux/hooks'
 import { selectUser } from '@/redux/slices/auth'
 import { Achievement } from '../../cards';
 import { ticket } from '../../img/images'
@@ -16,7 +16,7 @@ type Props = {
 }
 
 const AchievementCard = ({achievements, keyType}: Props) => {
-    const user = useSelector(selectUser)
+    const user = useAppSelector(selectUser)
     const [claimAchievement] = useClaimAchievementMutation();
 
     const userAchievement = user && user.achievements.filter(ach => {

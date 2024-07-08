@@ -4,13 +4,13 @@ import styles from "./page.module.scss";
 import Card from "../../components/Card";
 
 import Mannequin from "../../components/Mannequin";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../src/redux/hooks";
 import { selectUser } from "@/redux/slices/auth";
 import ReferralCard from "../../components/ReferralCard";
 import Image from "next/image";
 
 const Home = () => {
-  const user = useSelector(selectUser)
+  const user = useAppSelector(selectUser)
   const time = user?.inventory[4].speed
 
   if(!user){

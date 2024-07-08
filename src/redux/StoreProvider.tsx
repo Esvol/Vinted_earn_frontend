@@ -8,7 +8,7 @@ interface StoreProviderProps {
 
 export function StoreProvider({ children }: StoreProviderProps) {
   return (
-    <Provider store={store}>
+    <Provider store={store()}>
       {children}
     </Provider>
   );

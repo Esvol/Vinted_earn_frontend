@@ -13,12 +13,12 @@ import { empty_avatar } from '../../img/images';
 import { GrCircleQuestion } from "react-icons/gr";
 import { RxHamburgerMenu } from "react-icons/rx";
 
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../src/redux/hooks'
 import { selectUser } from '@/redux/slices/auth'
 
 
 const Header = () => {
-    const user = useSelector(selectUser);
+    const user = useAppSelector(selectUser);
 
     const loginWithGoogle = () => {
         window.open('http://localhost:2000/auth/google/callback', '_self')
