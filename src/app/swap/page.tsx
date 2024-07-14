@@ -89,7 +89,7 @@ const Swap = () => {
                         <div className={styles.swap_container_results_box}>
                             {
                                 user.discounts.map((discount, index) => (
-                                    <div key={index} className={styles.swap_container_results_box_discount}>
+                                    <div key={index} className={styles.swap_container_results_box_discount} role={discount.type}>
                                         <div>
                                             <Image src={discount.type === 'clothes' ? clothes_discount : delivery_discount} alt='' width={30} height={30}/>
                                             <p>{discount.type.charAt(0).toLocaleUpperCase() + discount.type.slice(1)} - {discount.amount}%</p>

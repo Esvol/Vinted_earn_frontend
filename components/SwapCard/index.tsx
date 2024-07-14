@@ -81,6 +81,7 @@ const SwapCard = ({user, cards, type, image}: Props) => {
                 <div className={styles.card_container_back_box}>
                     <button
                         onClick={handleSwap} 
+                        role={type.toLocaleUpperCase()}
                         type="button" 
                         disabled={user ? user.balance <= currentCard.spend : false} 
                         className={`${user && user.balance >= currentCard.spend ? `${styles.possible}` : `${styles.impossible}`}`}>

@@ -1,7 +1,18 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import Swap from '@/app/swap/page'
 import { renderWithProviders } from '../../test-utils'
+import { setupServer } from 'msw/node';
+import { http, HttpResponse } from 'msw'; 
+
+
+export const handlers = [
+    http.patch('/swap-for-discount', () => {
+        return HttpResponse.json({user: null})
+    })
+];
+
+export const server = setupServer(...handlers);
 
 describe('Swap page', () => {
     it('Should render properly', () => {
@@ -15,7 +26,7 @@ describe('Swap page', () => {
             }
         })
 
-        const swapElement = screen.getByRole('region');
-        expect(swapElement).toBeInTheDocument()
+        expect(screen.getByRole('CLOTHES')).toBeInTheDocument()
     })
 })
+
